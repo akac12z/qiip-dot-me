@@ -6,16 +6,17 @@ import ClientRouter from "astro/components/ClientRouter.astro";
   <ClientRouter />
 
   <script is:inline>
-    (function () {
-      const stored = localStorage.getItem("theme");
-      if (stored === "light" || stored === "dark") {
-        document.documentElement.dataset.theme = stored;
-        return;
-      }
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        document.documentElement.dataset.theme = "dark";
-      }
-    })();
+    const getTheme = () =>
+      localStorage.getItem("theme") ??
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light");
+
+    document.documentElement.setAttribute("data-theme", getTheme());
+
+    document.addEventListener("astro:before-swap", (e) => {
+      e.newDocument.documentElement.setAttribute("data-theme", getTheme());
+    });
   </script>
 
   {/* Global Metadata */}

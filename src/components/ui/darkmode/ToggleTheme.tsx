@@ -30,39 +30,11 @@ export function ToggleTheme() {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
 
-  const toggleTheme = async () => {
+  const toggleTheme = () => {
     const nextTheme = theme === "light" ? "dark" : "light";
-
-    // Calcular origen del clip desde el centro del botón
-    if (btnRef.current) {
-      const rect = btnRef.current.getBoundingClientRect();
-      const x = rect.left + rect.width / 2;
-      const y = rect.top + rect.height / 2;
-      const maxRadius = Math.hypot(
-        Math.max(x, window.innerWidth - x),
-        Math.max(y, window.innerHeight - y)
-      );
-
-      document.documentElement.style.setProperty(
-        "--vt-clip-start", `circle(0px at ${x}px ${y}px)`
-      );
-      document.documentElement.style.setProperty(
-        "--vt-clip-end", `circle(${maxRadius}px at ${x}px ${y}px)`
-      );
-    }
-
-    if (!document.startViewTransition) {
-      document.documentElement.dataset.theme = nextTheme;
-      localStorage.setItem("theme", nextTheme);
-      setTheme(nextTheme);
-      return;
-    }
-
-    await document.startViewTransition(() => {
-      document.documentElement.dataset.theme = nextTheme;
-      localStorage.setItem("theme", nextTheme);
-      setTheme(nextTheme);
-    }).finished;
+    document.documentElement.dataset.theme = nextTheme;
+    localStorage.setItem("theme", nextTheme);
+    setTheme(nextTheme);
   };
 
   return (
