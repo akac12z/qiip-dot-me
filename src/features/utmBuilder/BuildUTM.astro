@@ -1,0 +1,46 @@
+---
+import FormUTM from "@/utmBuilder/components/FormUTM.astro";
+import PreviewURL from "@/utmBuilder/components/PreviewURL.astro";
+import "./styles/styles.css";
+---
+
+<section class="content">
+  <PreviewURL />
+  <FormUTM />
+
+  <section class="result-box" id="resultBox" style="display: block;">
+    <span class="result-label">Generated URL</span>
+    <div id="resultUrl">
+      aquí va a ir el texto de la url que se va a poder copiar
+    </div>
+    <div class="button-group">
+      <button class="btn-copy" id="copyBtn">
+        <span>📋 Copy URL</span>
+      </button>
+
+      <span class="test-url" id="testBtn">🌐 Test URL</span>
+    </div>
+  </section>
+
+  <section class="history">
+    <h3>
+      <span>📚</span>
+      Recent History
+    </h3>
+    <div id="historyList">
+      <div class="empty-state">No URLs generated yet</div>
+    </div>
+    <button
+      class="btn-secondary"
+      style="margin-top: 15px; width: 100%;"
+      id="clearHistoryBtn"
+    >
+      🗑️ Borrar Historial
+    </button>
+  </section>
+</section>
+
+<section class="toast" id="toast">
+  <span>✅</span>
+  <span id="toastMessage">URL copied to clipboard</span>
+</section>

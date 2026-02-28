@@ -1,0 +1,13 @@
+---
+import { ToggleTheme } from "@/ui/darkmode/ToggleTheme";
+import styles from "./header.module.css";
+---
+
+<section class={styles.header}>
+  <nav class={styles.navBar}>
+    <h1>qiip.me</h1>
+    <ToggleTheme client:only="react" />
+  </nav>
+  <span class={styles.description}>Find | Share | Hide(?)</span>
+  <p>qiip.me es una herramienta gratuita para crear URLs con parámetros UTM</p>
+</section>

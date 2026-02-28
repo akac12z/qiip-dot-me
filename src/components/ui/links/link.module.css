@@ -1,0 +1,27 @@
+.anchor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+  padding-bottom: 0;
+  font-family: var(--ff-headings);
+  font-weight: 600;
+  font-size: 0.8rem;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.5rem;
+  }
+}
+
+.goOut {
+  margin-left: 0.3rem;
+  width: 0.8rem;
+  height: 0.8rem;
+}

@@ -1,0 +1,25 @@
+---
+import GoOut from "@/icons/GoOut.astro";
+import styles from "./link.module.css";
+
+interface Props {
+  title: string;
+  href: string;
+  text: string;
+  is_third_party?: boolean;
+  classes?: string;
+}
+
+const { title, href, text, is_third_party, classes } = Astro.props;
+---
+
+<a
+  class={classes ? `${styles.anchor} ${classes}` : styles.anchor}
+  target="_blank"
+  rel="noopener noreferrer"
+  title={title}
+  href={href}
+>
+  {text}
+  {is_third_party && <GoOut classes={styles.goOut} />}
+</a>

@@ -1,0 +1,254 @@
+/* inter-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/src/assets/fonts/inter-v20-latin-regular.woff2") format("woff2");
+}
+/* inter-italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/src/assets/fonts/inter-v20-latin-italic.woff2") format("woff2");
+}
+/* inter-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/src/assets/fonts/inter-v20-latin-500.woff2") format("woff2");
+}
+/* inter-500italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 500;
+  src: url("/src/assets/fonts/inter-v20-latin-500italic.woff2") format("woff2");
+}
+/* inter-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/src/assets/fonts/inter-v20-latin-700.woff2") format("woff2");
+}
+/* inter-700italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 700;
+  src: url("/src/assets/fonts/inter-v20-latin-700italic.woff2") format("woff2");
+}
+/* sono-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Sono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/src/assets/fonts/sono-v12-latin-regular.woff2") format("woff2");
+}
+/* sono-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Sono";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/src/assets/fonts/sono-v12-latin-500.woff2") format("woff2");
+}
+/* sono-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Sono";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/src/assets/fonts/sono-v12-latin-600.woff2") format("woff2");
+}
+/* sono-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Sono";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/src/assets/fonts/sono-v12-latin-700.woff2") format("woff2");
+}
+
+:root {
+  --primary-color: hsla(277, 83%, 61%, 0.82);
+  /* Backgrounds - Negros suaves */
+  --bg-primary: hsla(0, 0%, 5%, 1);
+  --bg-secondary: hsla(0, 0%, 10%, 1);
+  --bg-tertiary: hsla(0, 0%, 15%, 1);
+  --bg-elevated: hsla(0, 0%, 20%, 1);
+  --bg-card: hsla(0, 0%, 25%, 1);
+
+  /* Text - Blancos suaves */
+  --text-primary: hsla(0, 0%, 95%, 1);
+  --text-secondary: hsla(0, 0%, 85%, 1);
+  --text-tertiary: hsla(0, 0%, 75%, 1);
+  --text-muted: hsla(0, 0%, 55%, 1);
+
+  /* Borders - Grises sutiles */
+  --border-color: hsla(0, 0%, 45%, 1);
+  --border-light: hsla(0, 0%, 50%, 1);
+  --border-focus: hsla(0, 0%, 55%, 1);
+
+  /* Accents - Grises con carácter */
+  --color-primary: hsla(0, 0%, 95%, 1);
+  --color-primary-hover: hsla(0, 0%, 90%, 1);
+  --color-primary-dark: hsla(0, 0%, 85%, 1);
+
+  --color-accent: hsla(0, 0%, 85%, 1);
+  --color-accent-hover: hsla(0, 0%, 80%, 1);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+  /* Glass effect */
+  --glass-bg: rgba(26, 26, 26, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+
+  /* success */
+  --success-color: hsla(145, 63%, 49%, 1);
+  --success-color-hover: hsla(145, 63%, 42%, 1);
+
+  /* fonts */
+  --ff-headings: "Sono", sans-serif;
+  --ff-body: "Inter", sans-serif;
+}
+
+/* LIGHT MODE - Grises claros refinados */
+[data-theme="light"] {
+  --primary-color: hsla(277, 59%, 49%, 0.82);
+  /* Backgrounds - Blancos suaves */
+  --bg-primary: hsla(0, 0%, 95%, 1);
+  --bg-secondary: hsla(0, 0%, 90%, 1);
+  --bg-tertiary: hsla(0, 0%, 85%, 1);
+  --bg-elevated: hsla(0, 0%, 80%, 1);
+  --bg-card: hsla(0, 0%, 75%, 1);
+
+  /* Text - Negros suaves */
+  --text-primary: hsla(0, 0%, 15%, 1);
+  --text-secondary: hsla(0, 0%, 25%, 1);
+  --text-tertiary: hsla(0, 0%, 35%, 1);
+  --text-muted: hsla(0, 0%, 45%, 1);
+
+  /* Borders */
+  --border-color: hsla(0, 0%, 45%, 1);
+  --border-light: hsla(0, 0%, 50%, 1);
+  --border-focus: hsla(0, 0%, 55%, 1);
+
+  /* Accents */
+  --color-primary: hsla(0, 0%, 95%, 1);
+  --color-primary-hover: hsla(0, 0%, 90%, 1);
+  --color-primary-dark: hsla(0, 0%, 85%, 1);
+
+  --color-accent: hsla(0, 0%, 85%, 1);
+  --color-accent-hover: hsla(0, 0%, 80%, 1);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px hsla(0, 0%, 0%, 0.06);
+  --shadow-md: 0 4px 12px hsla(0, 0%, 0%, 0.08);
+  --shadow-lg: 0 8px 24px hsla(0, 0%, 0%, 0.1);
+
+  /* Glass effect */
+  --glass-bg: hsla(0, 0%, 100%, 0.7);
+  --glass-border: hsla(0, 0%, 100%, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-body);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  position: relative;
+  min-height: 100dvh;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+
+  &::selection {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-headings);
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.875rem;
+}
+
+h6 {
+  font-size: 0.75rem;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+  flex: 1;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+  animation: vt-reveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+@keyframes vt-reveal {
+  from {
+    clip-path: var(--vt-clip-start);
+  }
+  to {
+    clip-path: var(--vt-clip-end);
+  }
+}

@@ -1,0 +1,42 @@
+---
+import ClientRouter from "astro/components/ClientRouter.astro";
+---
+
+<head>
+  <ClientRouter />
+
+  <script is:inline>
+    (function () {
+      const stored = localStorage.getItem("theme");
+      if (stored === "light" || stored === "dark") {
+        document.documentElement.dataset.theme = stored;
+        return;
+      }
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+
+  {/* Global Metadata */}
+  <meta charset="UTF-8" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="robots" content="index, follow" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=yes, shrink-to-fit=no"
+  />
+  <meta name="generator" content={Astro.generator} />
+
+  <link rel="sitemap" href="/sitemap-index.xml" />
+
+  {/* favicons */}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <title>qiip.me</title>
+
+  <slot />
+</head>
