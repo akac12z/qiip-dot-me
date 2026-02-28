@@ -3,11 +3,16 @@ import { ToggleTheme } from "@/ui/darkmode/ToggleTheme";
 import styles from "./header.module.css";
 ---
 
-<section class={styles.header}>
+<header class={styles.header}>
   <nav class={styles.navBar}>
-    <h1>qiip.me</h1>
-    <ToggleTheme client:only="react" />
+    <a href="/" class={styles.logo}><h1>qiip.me</h1></a>
+    <section>
+      <a href="/build-utms" class="primary-btn">Build UTMs</a>
+      <a href="/qr" class="primary-btn">Create QRs</a>
+      <a href="/shorten-urls" class="primary-btn">Shorten URLs</a>
+    </section>
+    <section>
+      <ToggleTheme client:only="react" />
+    </section>
   </nav>
-  <span class={styles.description}>Find | Share | Hide(?)</span>
-  <p>qiip.me es una herramienta gratuita para crear URLs con parámetros UTM</p>
-</section>
+</header>

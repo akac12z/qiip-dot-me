@@ -81,48 +81,62 @@
 
 :root {
   --primary-color: hsla(277, 83%, 61%, 0.82);
-  /* Backgrounds - Negros suaves */
-  --bg-primary: hsla(0, 0%, 5%, 1);
-  --bg-secondary: hsla(0, 0%, 10%, 1);
-  --bg-tertiary: hsla(0, 0%, 15%, 1);
-  --bg-elevated: hsla(0, 0%, 20%, 1);
-  --bg-card: hsla(0, 0%, 25%, 1);
+  /* Backgrounds - smooth backs */
+  --bg-primary: hsla(0, 0%, 5%, 1); /* only background */
+  --bg-secondary: hsla(
+    0,
+    0%,
+    10%,
+    1
+  ); /* to differentiate large areas of the UI */
+  --bg-tertiary: hsla(0, 0%, 15%, 1); /* neutral interactive elements */
+  --bg-elevated: hsla(0, 0%, 20%, 1); /* overlapping elements */
+  --bg-card: hsla(0, 0%, 25%, 1); /* content containers */
 
-  /* Text - Blancos suaves */
-  --text-primary: hsla(0, 0%, 95%, 1);
-  --text-secondary: hsla(0, 0%, 85%, 1);
-  --text-tertiary: hsla(0, 0%, 75%, 1);
-  --text-muted: hsla(0, 0%, 55%, 1);
+  /* Text - smooth whites */
+  --text-primary: hsla(0, 0%, 95%, 1); /* titles */
+  --text-secondary: hsla(0, 0%, 85%, 1); /* body text */
+  --text-tertiary: hsla(0, 0%, 75%, 1); /* secondary infomation */
+  --text-muted: hsla(0, 0%, 55%, 1); /* placeholders */
 
-  /* Borders - Grises sutiles */
-  --border-color: hsla(0, 0%, 45%, 1);
-  --border-light: hsla(0, 0%, 50%, 1);
-  --border-focus: hsla(0, 0%, 55%, 1);
+  /* Borders */
+  --border-color: hsla(0, 0%, 45%, 1); /* standard border */
+  --border-light: hsla(0, 0%, 50%, 1); /* hover elements */
+  --border-focus: hsla(0, 0%, 55%, 1); /* active elements */
 
-  /* Accents - Grises con carácter */
-  --color-primary: hsla(0, 0%, 95%, 1);
-  --color-primary-hover: hsla(0, 0%, 90%, 1);
-  --color-primary-dark: hsla(0, 0%, 85%, 1);
+  --border-radius: 6px;
 
-  --color-accent: hsla(0, 0%, 85%, 1);
-  --color-accent-hover: hsla(0, 0%, 80%, 1);
+  /* Accents */
+  --color-primary: hsla(0, 0%, 95%, 1); /* primary bottons */
+  --color-primary-hover: hsla(0, 0%, 90%, 1); /* primary bottons hover */
+  --color-primary-dark: hsla(0, 0%, 85%, 1); /* primary bottons dark */
+
+  --color-accent: hsla(0, 0%, 85%, 1); /* secondary bottons */
+  --color-accent-hover: hsla(0, 0%, 80%, 1); /* secondary bottons hover */
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3); /* bottons */
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4); /* cards */
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5); /* dialogs */
 
   /* Glass effect */
-  --glass-bg: rgba(26, 26, 26, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(26, 26, 26, 0.7); /* glass effect */
+  --glass-border: rgba(255, 255, 255, 0.05); /* glass border */
 
   /* success */
-  --success-color: hsla(145, 63%, 49%, 1);
-  --success-color-hover: hsla(145, 63%, 42%, 1);
+  --success-color: hsla(145, 63%, 49%, 1); /* success bottons */
+  --success-color-hover: hsla(145, 63%, 42%, 1); /* success bottons hover */
 
   /* fonts */
   --ff-headings: "Sono", sans-serif;
   --ff-body: "Inter", sans-serif;
+
+  /* timer */
+  --timer-05s: 0.5s;
+  --timer-2s: 2s;
+
+  /* transitions */
+  --cubic-ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* LIGHT MODE - Grises claros refinados */
@@ -170,6 +184,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /* transition:
+    background 0.2s var(--cubic-ease),
+    color 0.2s var(--cubic-ease); */
 }
 
 html {
@@ -180,18 +197,24 @@ body {
   font-family: var(--ff-body);
   background: var(--bg-primary);
   color: var(--text-secondary);
-  position: relative;
   min-height: 100dvh;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
+  /* transition:
+    background var(--timer-05s) var(--cubic-ease),
+    color var(--timer-05s) var(--cubic-ease); */
 
   &::selection {
     background-color: var(--primary-color);
     color: var(--text-primary);
   }
+}
+
+.au {
+  animation: fadeUp var(--timer-05s) var(--cubic-ease) both;
 }
 
 h1,
@@ -205,7 +228,7 @@ h6 {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 h2 {
@@ -235,26 +258,73 @@ main {
   flex: 1;
 }
 
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--border-radius); /* 6px */
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--ff-headings);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+
+  &:hover {
+    background: var(--bg-secondary);
+  }
+
+  &:active {
+    scale: 0.95;
+  }
+
+  &.active {
+    background: none;
+    cursor: default;
+    pointer-events: none;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+    text-decoration-color: var(--primary-color);
+  }
 }
 
-::view-transition-new(root) {
-  z-index: 9999;
-  animation: vt-reveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 ::view-transition-old(root) {
-  z-index: 1;
+  animation: theme-fade-out 0.5s ease forwards;
 }
 
-@keyframes vt-reveal {
+::view-transition-new(root) {
+  animation: theme-fade-in 0.5s ease forwards;
+}
+
+@keyframes theme-fade-out {
   from {
-    clip-path: var(--vt-clip-start);
+    opacity: 1;
   }
   to {
-    clip-path: var(--vt-clip-end);
+    opacity: 0;
+  }
+}
+
+@keyframes theme-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -26,15 +26,21 @@ export function ToggleTheme() {
   const [theme, setTheme] = useState<"light" | "dark">(getInitialTheme);
   const btnRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-  }, [theme]);
-
-  const toggleTheme = () => {
+ const toggleTheme = () => {
     const nextTheme = theme === "light" ? "dark" : "light";
-    document.documentElement.dataset.theme = nextTheme;
-    localStorage.setItem("theme", nextTheme);
-    setTheme(nextTheme);
+
+    const apply = () => {
+      document.documentElement.dataset.theme = nextTheme;
+      localStorage.setItem("theme", nextTheme);
+      setTheme(nextTheme);
+    };
+
+    if (!document.startViewTransition) {
+      apply();
+      return;
+    }
+
+    document.startViewTransition(apply);
   };
 
   return (

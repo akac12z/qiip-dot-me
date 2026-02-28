@@ -1,28 +1,40 @@
 .header {
   background: var(--bg-primary);
-  padding: 20px;
+  padding: 1rem;
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-
-  h1 {
-    color: var(--text-primary);
-    font-size: 1.2rem;
-
-    font-weight: 700;
-  }
-
-  .description {
-    font-size: 1rem;
-    color: var(--text-secondary);
-  }
+  height: 4rem;
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
 
   .navBar {
     text-align: center;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+
+  h1 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .logo {
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .navCenter {
+    display: none;
+  }
+
+  h1 {
+    font-size: 0.875rem;
   }
 }
