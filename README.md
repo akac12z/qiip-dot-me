@@ -1,6 +1,6 @@
-# BuildUTM
+# qiip.me
 
-BuildUTM is a tool that helps you to build UTM parameters for your marketing campaigns. And in the future, much more.
+qiip.me is a tool that helps you to build UTM parameters for your marketing campaigns. And in the future, much more.
 
 ## Acknowledgments
 
