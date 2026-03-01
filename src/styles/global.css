@@ -123,9 +123,10 @@
   --glass-bg: rgba(26, 26, 26, 0.7); /* glass effect */
   --glass-border: rgba(255, 255, 255, 0.05); /* glass border */
 
-  /* success */
-  --success-color: hsla(145, 63%, 49%, 1); /* success bottons */
-  --success-color-hover: hsla(145, 63%, 42%, 1); /* success bottons hover */
+  /* feedback */
+  --success-color: hsla(145, 63%, 49%, 1);
+  --warning-color: hsla(38, 92%, 50%, 1);
+  --error-color: hsla(0, 72%, 51%, 1);
 
   /* fonts */
   --ff-headings: "Sono", sans-serif;

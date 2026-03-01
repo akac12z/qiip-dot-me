@@ -63,7 +63,8 @@ All defined in `src/styles/global.css`. Always use variables — never hardcode 
 
 ```
 --success-color
---success-color-hover
+--warning-color
+--error-color
 ```
 
 **Shadows**
