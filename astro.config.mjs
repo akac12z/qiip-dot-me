@@ -11,7 +11,7 @@ import partytown from '@astrojs/partytown';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), sitemap(), partytown()],
-  site: 'https://buildutm.app',
+  site: 'https://qiip.me',
   webAnalytics: {
     enabled: true,
   },
