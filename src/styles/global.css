@@ -80,7 +80,7 @@
 }
 
 :root {
-  --primary-color: hsla(160, 84%, 39%, 1);
+  --primary-color: hsla(160, 79%, 39%, 1);
   /* Backgrounds - smooth backs */
   --bg-primary: hsla(0, 0%, 5%, 1); /* only background */
   --bg-secondary: hsla(
