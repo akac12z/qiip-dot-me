@@ -121,7 +121,7 @@
 
   /* Glass effect */
   --glass-bg: rgba(26, 26, 26, 0.7); /* glass effect */
-  --glass-border: rgba(255, 255, 255, 0.05); /* glass border */
+  --glass-border: hsla(0, 0%, 16%, 1); /* glass border */
 
   /* feedback */
   --success-color: hsla(145, 63%, 49%, 1);
@@ -142,7 +142,7 @@
 
 /* LIGHT MODE - Grises claros refinados */
 [data-theme="light"] {
-  --primary-color: hsla(158, 64%, 52%, 1);
+  --primary-color: hsla(158, 77%, 42%, 1);
   /* Backgrounds - Blancos suaves */
   --bg-primary: hsla(0, 0%, 95%, 1);
   --bg-secondary: hsla(0, 0%, 90%, 1);
@@ -176,7 +176,7 @@
 
   /* Glass effect */
   --glass-bg: hsla(0, 0%, 100%, 0.7);
-  --glass-border: hsla(0, 0%, 100%, 0.05);
+  --glass-border: hsla(0, 0%, 89%, 1);
 }
 
 *,
@@ -185,9 +185,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* transition:
-    background 0.2s var(--cubic-ease),
-    color 0.2s var(--cubic-ease); */
 }
 
 html {
@@ -204,9 +201,6 @@ body {
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
-  /* transition:
-    background var(--timer-05s) var(--cubic-ease),
-    color var(--timer-05s) var(--cubic-ease); */
 
   &::selection {
     background-color: var(--primary-color);
@@ -254,7 +248,8 @@ h6 {
 
 main {
   margin: 0 auto;
-  max-width: 800px;
+  padding: 2rem 1rem;
+  max-width: 90%;
   width: 100%;
   flex: 1;
 }
@@ -327,5 +322,13 @@ main {
   }
   to {
     opacity: 1;
+  }
+}
+
+/*responsive*/
+@media (max-width: 720px) {
+  main {
+    padding: 0 0.5rem;
+    max-width: 100%;
   }
 }

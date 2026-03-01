@@ -1,27 +1,26 @@
 ---
 import styles from "./header.module.css";
 const path = Astro.url.pathname;
+
+const links = [
+  { href: "/build-utms", label: "Build UTMs" },
+  { href: "/qr", label: "Create QRs" },
+  { href: "/shorten-urls", label: "Shorten URLs" },
+  { href: "/word-count", label: "Word Count" },
+];
 ---
 
-<section class={styles.navCenter}>
-  <a
-    href="/build-utms"
-    class={`${styles.navLink} ${path === "/build-utms" ? styles.active : ""}`}
-    >Build UTMs</a
-  >
-  <a
-    href="/qr"
-    class={`${styles.navLink} ${path === "/qr" ? styles.active : ""}`}
-    >Create QRs</a
-  >
-  <a
-    href="/shorten-urls"
-    class={`${styles.navLink} ${path === "/shorten-urls" ? styles.active : ""}`}
-    >Shorten URLs</a
-  >
-  <a
-    href="/word-count"
-    class={`${styles.navLink} ${path === "/word-count" ? styles.active : ""}`}
-    >Word Count</a
-  >
-</section>
+<ul class={styles.links}>
+  {
+    links.map(({ href, label }) => (
+      <li>
+        <a
+          href={href}
+          class={`${styles.link} ${path === href ? styles.active : ""}`}
+        >
+          {label}
+        </a>
+      </li>
+    ))
+  }
+</ul>

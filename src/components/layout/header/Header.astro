@@ -1,15 +1,59 @@
 ---
 import { ToggleTheme } from "@/ui/darkmode/ToggleTheme";
-import NavLinks from "./NavLinks.astro";
 import styles from "./header.module.css";
+import NavLinks from "./NavLinks.astro";
+
+const path = Astro.url.pathname;
 ---
 
 <header class={styles.header}>
-  <nav class={styles.navBar}>
-    <a href="/" class={styles.logo}><h1>qiip.me</h1></a>
+  <nav class={styles.pill}>
+    <a href="/" class={styles.logo}>qiip.me</a>
+
     <NavLinks />
-    <section>
+
+    <div class={styles.right}>
       <ToggleTheme client:only="react" />
-    </section>
+      <button
+        class={styles.burger}
+        id="burgerBtn"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </nav>
+
+  <!-- <div class={styles.mobileMenu} id="mobileMenu">
+    <div class={styles.mobileInner}>
+      <NavLinks />
+    </div>
+  </div> -->
 </header>
+
+<!-- <script>
+  function initBurger() {
+    const burger = document.getElementById("burgerBtn");
+    const menu = document.getElementById("mobileMenu");
+
+    if (!burger || !menu) return;
+
+    burger.addEventListener("click", () => {
+      const isOpen = burger.getAttribute("aria-expanded") === "true";
+      burger.setAttribute("aria-expanded", String(!isOpen));
+      menu.classList.toggle("open", !isOpen);
+    });
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        burger.setAttribute("aria-expanded", "false");
+        menu.classList.remove("open");
+      });
+    });
+  }
+
+  document.addEventListener("astro:page-load", initBurger);
+</script> -->
