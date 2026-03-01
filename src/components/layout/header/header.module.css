@@ -29,12 +29,42 @@
   }
 }
 
+.navLink {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-family: var(--ff-headings);
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--border-radius);
+  transition:
+    background 0.2s,
+    color 0.2s;
+
+  &:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
+  &:active {
+    scale: 0.95;
+  }
+
+  &.active {
+    background: none;
+    cursor: default;
+    pointer-events: none;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+    text-decoration-color: var(--primary-color);
+  }
+}
+
 @media (max-width: 720px) {
   .navCenter {
     display: none;
   }
 
-  h1 {
+  .header h1 {
     font-size: 0.875rem;
   }
 }

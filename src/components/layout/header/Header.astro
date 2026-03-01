@@ -1,16 +1,13 @@
 ---
 import { ToggleTheme } from "@/ui/darkmode/ToggleTheme";
+import NavLinks from "./NavLinks.astro";
 import styles from "./header.module.css";
 ---
 
 <header class={styles.header}>
   <nav class={styles.navBar}>
     <a href="/" class={styles.logo}><h1>qiip.me</h1></a>
-    <section>
-      <a href="/build-utms" class="primary-btn">Build UTMs</a>
-      <a href="/qr" class="primary-btn">Create QRs</a>
-      <a href="/shorten-urls" class="primary-btn">Shorten URLs</a>
-    </section>
+    <NavLinks />
     <section>
       <ToggleTheme client:only="react" />
     </section>
