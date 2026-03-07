@@ -30,7 +30,11 @@ No linter or test runner is configured.
 | `@/ui/*` | `src/components/ui/*` |
 | `@/layout/*` | `src/components/layout/*` |
 | `@/seo/*` | `src/components/seo/*` |
+| `@/home/*` | `src/features/home/*` |
 | `@/utmBuilder/*` | `src/features/utmBuilder/*` |
+| `@/qrGenerator/*` | `src/features/qrGenerator/*` |
+| `@/wordCounter/*` | `src/features/wordCounter/*` |
+| `@/shortenUrls/*` | `src/features/shortenUrls/*` |
 
 ### Feature Folder Pattern
 Each tool lives in `src/features/{featureName}/` with its own `components/` subfolder:
