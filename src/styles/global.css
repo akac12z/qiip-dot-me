@@ -104,7 +104,7 @@
 	--border-light: hsla(0, 0%, 50%, 1); /* hover elements */
 	--border-focus: hsla(0, 0%, 55%, 1); /* active elements */
 
-	--border-radius: 3px;
+	--border-radius: 6px;
 
 	/* Accents */
 	--color-primary: hsla(0, 0%, 95%, 1); /* primary bottons */
