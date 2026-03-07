@@ -1,0 +1,31 @@
+---
+import styles from "./tools.module.css";
+import { TOOLS } from "./tools";
+
+const tools = TOOLS;
+---
+
+<section class={styles.tools}>
+  {
+    tools.map((tool) => {
+      const { name, desc, href, number, onAir } = tool;
+      return (
+        <a href={href} class={`${styles.row} au`} style={`animation-delay:${number * 0.15}s`}>
+          <div class={styles.rowContent}>
+            
+            <span class={styles.rowName}>{name}
+              {
+                !onAir && (
+                  <span class={styles.soonTag}>Soon</span>
+
+                )
+              }
+            </span>
+            <span class={styles.rowDesc}>{desc}</span>
+          </div>
+          <span class={styles.rowNum}>{number.toString().padStart(2, '0')}</span>
+        </a>
+      )
+    })
+  }
+</section>
