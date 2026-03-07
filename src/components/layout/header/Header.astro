@@ -13,7 +13,6 @@ const path = Astro.url.pathname;
     <NavLinks />
 
     <div class={styles.right}>
-      <ToggleTheme client:only="react" />
       <button
         class={styles.burger}
         id="burgerBtn"
@@ -24,6 +23,7 @@ const path = Astro.url.pathname;
         <span></span>
         <span></span>
       </button>
+      <ToggleTheme client:only="react" />
     </div>
   </nav>
 
