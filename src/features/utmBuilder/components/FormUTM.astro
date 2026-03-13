@@ -1,90 +1,181 @@
 ---
-/**
- * para este formulario necesito:
- * - la url base
- * los utms:
- *  - utm_source -> plataforma de dónde viene el usuario: google, facebook, instagram, newsletter...
- *  - utm_medium -> tipo de tráfico/campaña que trae a los usuarios: cpc, email, social, banner...
- *  - utm_campaign -> nombre de la campaña que quieres hacer tracking
- *  - utm_term (opcional) -> palabra clave para la cual se está enseñando el anuncio (puedes no tener)
- *  - utm_content (opcional) -> contenido concreto en el que el usuario hace click (puedes tener uno y por ende, podría no serte útil este o tener varios en la propia página y tener que diferenciarlos con este parámetro)
-*/
-
 import styles from "./formUtm.module.css";
+
+const UTM_DEFINITION = {
+	url: "Base URL of the page you're driving traffic to. Don't include any UTM parameters here.",
+	source:
+		"Who sent the traffic? Identifies the specific platform or site sending the traffic, such as Google, Facebook, or Newsletter.",
+	medium:
+		"How did they get here? Identifies the high-level channel or type of traffic, like cpc (paid ads), email, or social.",
+	campaign:
+		"What is the big event? Identifies the specific marketing effort or product promotion being tracked, such as summer_sale or launch_2026.",
+	term: "Which keyword did they type? Used primarily in paid search to identify the specific keywords that triggered the ad.",
+	content:
+		"Which specific link did they click? Used to differentiate between similar links or ads within the same campaign, like blue_banner_v1 versus red_button_v2.",
+	id: "What is the internal serial number? A unique code used to identify a specific campaign in your backend data or to link to an uploaded campaign dataset.",
+};
 ---
 
-<div>
-  <div class={styles.field}>
-    <label class={styles.label} for="utm-url">Destination URL *</label>
-    <input
-      id="utm-url"
-      class={styles.input}
-      type="url"
-      placeholder="https://yourdomain.com/landing"
-      autocomplete="off"
-    />
-  </div>
+<section>
+	<div class={styles.field}>
+		<label
+			class={styles.label}
+			for="utm-url"
+			>Main URL <span class={styles.mandatory}>*</span><span
+				class={styles.tooltip}
+				><span
+					class={styles.tooltipTrigger}
+					tabindex="0"
+					>?</span
+				><span class={styles.tooltipContent}>{UTM_DEFINITION.url}</span></span
+			></label
+		>
+		<input
+			id="utm-url"
+			class={styles.input}
+			type="url"
+			placeholder="https://yourdomain.com/landing"
+			autocomplete="off"
+		/>
+		<p class={styles.hint}>
+			Your URL must start with “https://” to ensure it is secure
+		</p>
+	</div>
 
-  <div class={styles.divider}></div>
+	<div class={styles.divider}></div>
 
-  <div class={styles.fieldRow}>
-    <div class={styles.field}>
-      <label class={styles.label} for="utm-source">utm_source *</label>
-      <input
-        id="utm-source"
-        class={styles.input}
-        type="text"
-        placeholder="google, newsletter, instagram…"
-      />
-      <p class={styles.hint}>Where does the traffic come from?</p>
-    </div>
-    <div class={styles.field}>
-      <label class={styles.label} for="utm-medium">utm_medium *</label>
-      <input
-        id="utm-medium"
-        class={styles.input}
-        type="text"
-        placeholder="cpc, email, social…"
-      />
-      <p class={styles.hint}>What channel?</p>
-    </div>
-  </div>
+	<div class={styles.fieldRow}>
+		<div class={styles.field}>
+			<label
+				class={styles.label}
+				for="utm-source"
+				>utm_source <span class={styles.mandatory}>*</span><span
+					class={styles.tooltip}
+					><span
+						class={styles.tooltipTrigger}
+						tabindex="0"
+						>?</span
+					><span class={styles.tooltipContent}>{UTM_DEFINITION.source}</span
+					></span
+				></label
+			>
+			<input
+				id="utm-source"
+				class={styles.input}
+				type="text"
+				placeholder="google, newsletter, instagram…"
+			/>
+		</div>
+		<div class={styles.field}>
+			<label
+				class={styles.label}
+				for="utm-medium"
+				>utm_medium <span class={styles.mandatory}>*</span><span
+					class={styles.tooltip}
+					><span
+						class={styles.tooltipTrigger}
+						tabindex="0"
+						>?</span
+					><span class={styles.tooltipContent}>{UTM_DEFINITION.medium}</span
+					></span
+				></label
+			>
+			<input
+				id="utm-medium"
+				class={styles.input}
+				type="text"
+				placeholder="cpc, email, social…"
+			/>
+		</div>
+	</div>
 
-  <div class={styles.field}>
-    <label class={styles.label} for="utm-campaign">utm_campaign *</label>
-    <input
-      id="utm-campaign"
-      class={styles.input}
-      type="text"
-      placeholder="black-friday-2025, product-launch…"
-    />
-  </div>
+	<div class={styles.field}>
+		<label
+			class={styles.label}
+			for="utm-campaign"
+			>utm_campaign <span class={styles.mandatory}>*</span><span
+				class={styles.tooltip}
+				><span
+					class={styles.tooltipTrigger}
+					tabindex="0"
+					>?</span
+				><span class={styles.tooltipContent}>{UTM_DEFINITION.campaign}</span
+				></span
+			></label
+		>
+		<input
+			id="utm-campaign"
+			class={styles.input}
+			type="text"
+			placeholder="black-friday-2025, product-launch…"
+		/>
+	</div>
 
-  <div class={styles.fieldRow3}>
-    <div class={styles.field}>
-      <label class={styles.label} for="utm-term">
-        utm_term <span class={styles.optional}>optional</span>
-      </label>
-      <input id="utm-term" class={styles.input} type="text" placeholder="keyword" />
-    </div>
-    <div class={styles.field}>
-      <label class={styles.label} for="utm-content">
-        utm_content <span class={styles.optional}>optional</span>
-      </label>
-      <input
-        id="utm-content"
-        class={styles.input}
-        type="text"
-        placeholder="banner-top, cta-hero…"
-      />
-    </div>
-    <div class={styles.field}>
-      <label class={styles.label} for="utm-id">
-        utm_id <span class={styles.optional}>optional</span>
-      </label>
-      <input id="utm-id" class={styles.input} type="text" placeholder="campaign-id" />
-    </div>
-  </div>
-
-  <div id="utm-chips" class={styles.chipsRow}></div>
-</div>
+	<div class={styles.fieldRow3}>
+		<div class={styles.field}>
+			<label
+				class={styles.label}
+				for="utm-term"
+			>
+				utm_term <span class={styles.optional}>(optional)</span><span
+					class={styles.tooltip}
+					><span
+						class={styles.tooltipTrigger}
+						tabindex="0"
+						>?</span
+					><span class={styles.tooltipContent}>{UTM_DEFINITION.term}</span
+					></span
+				>
+			</label>
+			<input
+				id="utm-term"
+				class={styles.input}
+				type="text"
+				placeholder="keyword"
+			/>
+		</div>
+		<div class={styles.field}>
+			<label
+				class={styles.label}
+				for="utm-content"
+			>
+				utm_content <span class={styles.optional}>(optional)</span><span
+					class={styles.tooltip}
+					><span
+						class={styles.tooltipTrigger}
+						tabindex="0"
+						>?</span
+					><span class={styles.tooltipContent}>{UTM_DEFINITION.content}</span
+					></span
+				>
+			</label>
+			<input
+				id="utm-content"
+				class={styles.input}
+				type="text"
+				placeholder="banner-top, cta-hero…"
+			/>
+		</div>
+		<div class={styles.field}>
+			<label
+				class={styles.label}
+				for="utm-id"
+			>
+				utm_id <span class={styles.optional}>(optional)</span><span
+					class={styles.tooltip}
+					><span
+						class={styles.tooltipTrigger}
+						tabindex="0"
+						>?</span
+					><span class={styles.tooltipContent}>{UTM_DEFINITION.id}</span></span
+				>
+			</label>
+			<input
+				id="utm-id"
+				class={styles.input}
+				type="text"
+				placeholder="campaign-id"
+			/>
+		</div>
+	</div>
+</section>
