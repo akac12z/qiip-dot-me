@@ -94,7 +94,7 @@
 	font-weight: 600;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 640px) {
 	.rowNum {
 		font-size: 2rem;
 	}

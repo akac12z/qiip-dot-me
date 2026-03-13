@@ -61,7 +61,7 @@
 	padding-left: 0.75rem;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 640px) {
 	.hero {
 		padding: 3.5rem 0 2rem;
 	}
