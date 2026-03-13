@@ -130,6 +130,7 @@
 
 	/* other colors */
 	--soon-color: hsl(23, 83.3%, 52.9%);
+	--mandatory-color: hsl(0, 89.8%, 46.1%);
 
 	/* fonts */
 	--ff-headings: "Sono", sans-serif;
@@ -192,6 +193,7 @@
 
 html {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 body {
@@ -200,6 +202,7 @@ body {
 	color: var(--text-secondary);
 	min-height: 100dvh;
 	max-width: 1200px;
+	overflow-x: hidden;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -251,8 +254,7 @@ h6 {
 
 main {
 	margin: 0 auto;
-	padding: 2rem 1rem;
-	max-width: 90%;
+	padding: 2rem 1.5rem;
 	width: 100%;
 	flex: 1;
 }
@@ -329,9 +331,8 @@ main {
 }
 
 /*responsive*/
-@media (max-width: 720px) {
+@media (max-width: 640px) {
 	main {
 		padding: 0 0.5rem;
-		max-width: 100%;
 	}
 }
