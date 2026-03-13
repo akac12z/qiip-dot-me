@@ -81,6 +81,7 @@
 
 :root {
 	--primary-color: hsla(160, 79%, 39%, 1);
+	--primary-color-active: hsl(160, 80.5%, 61.8%);
 	/* Backgrounds - smooth backs */
 	--bg-primary: hsla(0, 0%, 5%, 1); /* only background */
 	--bg-secondary: hsla(
@@ -147,6 +148,7 @@
 /* LIGHT MODE - Grises claros refinados */
 [data-theme="light"] {
 	--primary-color: hsla(158, 77%, 42%, 1);
+	--primary-color-active: hsl(160, 79.9%, 27.3%);
 	/* Backgrounds - Blancos suaves */
 	--bg-primary: hsla(0, 0%, 95%, 1);
 	--bg-secondary: hsla(0, 0%, 90%, 1);
