@@ -2,16 +2,37 @@
 import styles from "./previewUrl.module.css";
 ---
 
-<div id="utm-result" class={styles.result}>
-  <div class={styles.resultHead}>
-    <span class={styles.resultLabel}>URL ready</span>
-    <button id="utm-copy-head-btn" class={styles.copyHeadBtn}>Copy</button>
-  </div>
-  <div class={styles.resultBody}>
-    <div id="utm-output" class={styles.resultUrl}></div>
-    <div class={styles.resultActions}>
-      <button id="utm-copy-url-btn" class={styles.btnPrimary}>Copy URL</button>
-      <a href="/qr" id="utm-qr-btn" class={styles.btnSecondary}>Generate QR →</a>
-    </div>
-  </div>
-</div>
+<section
+	id="utm-chips"
+	class={styles.chipsRow}
+>
+</section>
+
+<section
+	id="utm-result"
+	class={styles.result}
+>
+	<div class={styles.resultHead}>
+		<span class={styles.resultLabel}>URL ready</span>
+	</div>
+	<div class={styles.resultBody}>
+		<div
+			id="utm-output"
+			class={styles.resultUrl}
+		>
+		</div>
+		<div class={styles.resultActions}>
+			<button
+				id="utm-copy-url-btn"
+				class={styles.btnPrimary}
+				>Copy URL</button
+			>
+			<a
+				href="/qr"
+				id="utm-qr-btn"
+				class={styles.btnSecondary}
+				>Generate QR →</a
+			>
+		</div>
+	</div>
+</section>

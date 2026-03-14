@@ -1,3 +1,30 @@
+.chipsRow {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 1rem 0;
+	min-height: 1.5rem;
+}
+
+.chipsRow [data-chip] {
+	font-family: var(--ff-headings);
+	font-size: 0.65rem;
+	letter-spacing: 0.05em;
+	padding: 0.25rem 0.5rem;
+	border-radius: var(--border-radius);
+	border: 1px solid var(--border-color);
+	color: var(--text-muted);
+	transition: all 0.15s var(--cubic-ease);
+}
+
+.chipsRow [data-chip="on"] {
+	border-color: color-mix(in srgb, var(--primary-color) 45%, transparent);
+	color: var(--primary-color-active);
+	background: color-mix(in srgb, var(--primary-color) 8%, transparent);
+	opacity: 1;
+}
+
 .result {
 	margin-top: 1.75rem;
 	background: var(--bg-secondary);
@@ -13,7 +40,7 @@
 }
 
 .resultHead {
-	padding: 0.65rem 1rem;
+	padding: 0.5rem 1rem;
 	border-bottom: 1px solid var(--border-color);
 	background: var(--bg-tertiary);
 	display: flex;
@@ -26,38 +53,20 @@
 	font-size: 0.65rem;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
-	color: var(--primary-color);
+	color: var(--text-primary);
 	display: flex;
 	align-items: center;
 	gap: 0.4rem;
-}
-
-.resultLabel::before {
-	content: "";
-	width: 5px;
-	height: 5px;
-	border-radius: 50%;
-	background: var(--primary-color);
-}
-
-.copyHeadBtn {
-	font-family: var(--ff-headings);
-	font-size: 0.72rem;
 	font-weight: 600;
-	color: var(--text-muted);
-	background: none;
-	border: none;
-	cursor: pointer;
-	padding: 0.25rem 0.5rem;
-	border-radius: var(--border-radius);
-	transition:
-		color 0.15s var(--cubic-ease),
-		background 0.15s var(--cubic-ease);
-}
 
-.copyHeadBtn:hover {
-	color: var(--text-primary);
-	background: var(--bg-elevated);
+	&::before {
+		content: "";
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: var(--primary-color);
+		animation: pulse 1.5s infinite;
+	}
 }
 
 .resultBody {
@@ -97,12 +106,14 @@
 	transition: all 0.2s var(--cubic-ease);
 	background: var(--primary-color);
 	color: var(--bg-primary);
-}
 
-.btnPrimary:hover {
-	opacity: 0.88;
-	transform: translateY(-1px);
-	box-shadow: var(--shadow-sm);
+	&:hover {
+		opacity: 0.9;
+		box-shadow: var(--shadow-sm);
+	}
+	&:active {
+		scale: 0.9;
+	}
 }
 
 .btnSecondary {
@@ -120,10 +131,27 @@
 	border: 1px solid var(--border-color);
 	color: var(--text-secondary);
 	text-decoration: none;
+
+	&:hover {
+		border-color: var(--border-light);
+		color: var(--text-primary);
+	}
+
+	&:active {
+		scale: 0.9;
+	}
 }
 
-.btnSecondary:hover {
-	border-color: var(--border-light);
-	color: var(--text-primary);
-	transform: translateY(-1px);
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0
+			color-mix(in srgb, var(--primary-color) 50%, transparent);
+	}
+	70% {
+		box-shadow: 0 0 0 5px
+			color-mix(in srgb, var(--primary-color) 0%, transparent);
+	}
+	100% {
+		box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-color) 0%, transparent);
+	}
 }
