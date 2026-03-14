@@ -2,14 +2,6 @@
 	padding: 1rem 0 3rem;
 }
 
-.kicker {
-	font-family: var(--ff-headings);
-	font-size: 0.75rem;
-	letter-spacing: 0.12em;
-	color: var(--text-muted);
-	margin-bottom: 3rem;
-}
-
 .h1 {
 	margin-bottom: 2rem;
 
@@ -64,9 +56,6 @@
 @media (max-width: 640px) {
 	.hero {
 		padding: 3.5rem 0 2rem;
-	}
-	.kicker {
-		margin-bottom: 1.5rem;
 	}
 	.hero {
 		padding-top: 1.5rem;
