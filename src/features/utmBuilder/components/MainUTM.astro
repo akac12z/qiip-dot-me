@@ -1,0 +1,160 @@
+---
+import styles from "./mainUTM.module.css";
+import FormUTM from "./FormUTM.astro";
+import PreviewURL from "./PreviewURL.astro";
+---
+
+<section class={styles.wrap}>
+	<span class={styles.eyebrow}>01 — UTM Builder</span>
+	<h2 class={styles.title}>Build your tracking URL</h2>
+	<p class={styles.desc}>
+		Fill in the fields and get your UTM URL ready to paste into your campaign.
+	</p>
+	<FormUTM />
+	<PreviewURL />
+</section>
+
+<div
+	id="utm-toast"
+	class={styles.toast}
+>
+</div>
+
+<script>
+	document.addEventListener("astro:page-load", () => {
+		// ── Helpers ───────────────────────────────────────────────────────────
+
+		// Reads the current value of an input by its HTML id
+		function getInputValue(inputId: string): string {
+			const input = document.getElementById(inputId) as HTMLInputElement;
+			return input?.value.trim() ?? "";
+		}
+
+		// Shows/hides the red error border on the URL input
+		function setUrlError(hasError: boolean): void {
+			const urlInput = document.getElementById("utm-url") as HTMLInputElement;
+			if (urlInput) urlInput.dataset.error = hasError ? "true" : "";
+		}
+
+		// Updates the param chips row to reflect which fields are filled
+		function updateChips(fields: Record<string, string>): void {
+			const chipsContainer = document.getElementById("utm-chips");
+			if (!chipsContainer) return;
+			chipsContainer.innerHTML = Object.entries(fields)
+				.map(
+					([key, value]) =>
+						`<div data-chip="${value ? "on" : "off"}">${key}</div>`,
+				)
+				.join("");
+		}
+
+		// Shows the result preview box with the generated URL
+		function showResult(generatedUrl: string): void {
+			const output = document.getElementById("utm-output");
+			const result = document.getElementById("utm-result");
+			if (output) output.textContent = generatedUrl;
+			if (result) result.dataset.show = "true";
+		}
+
+		// Hides the result preview box
+		function hideResult(): void {
+			const result = document.getElementById("utm-result");
+			delete result?.dataset.show;
+		}
+
+		// Shows a temporary toast notification at the bottom of the screen
+		function showToast(message: string): void {
+			const toast = document.getElementById("utm-toast");
+			if (!toast) return;
+			toast.textContent = message;
+			toast.dataset.show = "true";
+			setTimeout(() => delete toast.dataset.show, 2200);
+		}
+
+		// ── State ─────────────────────────────────────────────────────────────
+
+		// Holds the last successfully generated UTM URL (used for copy & QR)
+		let currentUtmUrl = "";
+
+		// ── Core logic ────────────────────────────────────────────────────────
+
+		// Runs every time the user types in any field
+		function onFieldChange(): void {
+			const baseUrl = getInputValue("utm-url");
+			const isValidHttps = !baseUrl || baseUrl.startsWith("https://");
+
+			setUrlError(!isValidHttps);
+
+			const utmFields: Record<string, string> = {
+				utm_source: getInputValue("utm-source"),
+				utm_medium: getInputValue("utm-medium"),
+				utm_campaign: getInputValue("utm-campaign"),
+				utm_term: getInputValue("utm-term"),
+				utm_content: getInputValue("utm-content"),
+				utm_id: getInputValue("utm-id"),
+			};
+
+			updateChips(utmFields);
+
+			// Need at minimum: a valid https URL + source + medium + campaign
+			const requiredFieldsFilled =
+				baseUrl &&
+				isValidHttps &&
+				utmFields.utm_source &&
+				utmFields.utm_medium &&
+				utmFields.utm_campaign;
+
+			if (!requiredFieldsFilled) {
+				hideResult();
+				return;
+			}
+
+			try {
+				const url = new URL(baseUrl);
+				Object.entries(utmFields).forEach(([key, value]) => {
+					if (value) url.searchParams.set(key, value);
+				});
+				currentUtmUrl = url.toString();
+				showResult(currentUtmUrl);
+			} catch {
+				// Invalid URL format — hide the result
+				hideResult();
+			}
+		}
+
+		function copyUrl(): void {
+			if (!currentUtmUrl) return;
+			navigator.clipboard.writeText(currentUtmUrl);
+			showToast("✓ Copied URL");
+		}
+
+		// ── Event listeners ───────────────────────────────────────────────────
+
+		// Rebuild the UTM URL whenever any input changes
+		const allInputIds = [
+			"utm-url",
+			"utm-source",
+			"utm-medium",
+			"utm-campaign",
+			"utm-term",
+			"utm-content",
+			"utm-id",
+		];
+		allInputIds.forEach((id) =>
+			document.getElementById(id)?.addEventListener("input", onFieldChange),
+		);
+
+		document
+			.getElementById("utm-copy-url-btn")
+			?.addEventListener("click", copyUrl);
+
+		// QR button — saves the URL and navigates to the QR page
+		document.getElementById("utm-qr-btn")?.addEventListener("click", (e) => {
+			if (currentUtmUrl) {
+				e.preventDefault();
+				sessionStorage.setItem("qr-prefill", currentUtmUrl);
+				window.location.href = "/qr";
+			}
+		});
+	});
+</script>

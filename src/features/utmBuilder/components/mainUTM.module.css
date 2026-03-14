@@ -1,16 +1,15 @@
 .wrap {
-	max-width: 680px;
+	max-width: 640px;
 	margin: 0 auto;
-	padding: 2rem 0 5rem;
+	padding: 1rem 0 4rem;
 }
 
 .eyebrow {
 	font-family: var(--ff-headings);
-	font-size: 0.7rem;
+	font-size: 0.75rem;
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
 	color: var(--primary-color);
-	margin-bottom: 0.75rem;
 }
 
 .title {
@@ -18,17 +17,15 @@
 	font-weight: 700;
 	letter-spacing: -0.03em;
 	line-height: 1.1;
-	margin-bottom: 0.6rem;
+	margin: 1rem 0 0.5rem;
 }
 
 .desc {
-	font-size: 0.9rem;
+	font-size: 0.875rem;
 	color: var(--text-muted);
 	line-height: 1.7;
 	margin-bottom: 2rem;
 }
-
-/* ── Toast ──────────────────────────────────────────── */
 
 .toast {
 	position: fixed;
@@ -55,4 +52,11 @@
 .toast[data-show] {
 	opacity: 1;
 	transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 640px) {
+	.wrap {
+		padding-bottom: 2rem;
+		max-width: 480px;
+	}
 }
