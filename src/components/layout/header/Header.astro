@@ -1,15 +1,10 @@
 ---
-import { ToggleTheme } from "@/ui/darkmode/ToggleTheme";
 import styles from "./header.module.css";
+import { ToggleTheme } from "@/ui/darkmode/ToggleTheme";
+import { TOOLS } from "@/features/home/tools/tools";
 
 const path = Astro.url.pathname;
-
-const links = [
-	{ href: "/build-utms", label: "Build UTMs" },
-	{ href: "/qr", label: "Create QRs" },
-	{ href: "/word-count", label: "Word Count" },
-	{ href: "/shorten-urls", label: "Shorten URLs" },
-];
+const allTools = TOOLS;
 ---
 
 <header class={styles.header}>
@@ -22,13 +17,13 @@ const links = [
 
 		<ul class={styles.links}>
 			{
-				links.map(({ href, label }) => (
+				allTools.map(({ href, toolName }) => (
 					<li>
 						<a
 							href={href}
 							class={`${styles.link} ${path === href ? styles.active : ""}`}
 						>
-							{label}
+							{toolName}
 						</a>
 					</li>
 				))
@@ -57,7 +52,7 @@ const links = [
 		<div class={styles.mobileInner}>
 			<ul class={styles.mobileLinks}>
 				{
-					links.map(({ href, label }) => {
+					allTools.map(({ href, toolName }) => {
 						const isActive = path === href;
 						return (
 							<li>
@@ -65,7 +60,7 @@ const links = [
 									href={href}
 									class={`${styles.mobileLink} ${isActive ? styles.active : ""}`}
 								>
-									{label}
+									{toolName}
 									{isActive && <span class={styles.mobileDot} />}
 								</a>
 							</li>
