@@ -8,16 +8,19 @@ import Footer from "@/components/layout/footer/Footer.astro";
 ---
 
 <!doctype html>
-<html lang="es" data-theme="dark">
-  <BaseHead>
-    <slot name="head" />
-  </BaseHead>
-  <body >
-    <Header />
+<html
+	lang="es"
+	data-theme="dark"
+>
+	<BaseHead>
+		<slot name="head" />
+	</BaseHead>
+	<body>
+		<Header />
 
-    <main>
-      <slot />
-    </main>
-    <Footer />
-  </body>
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
 </html>

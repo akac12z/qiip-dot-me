@@ -151,7 +151,7 @@
 /* ── Mobile menu card ──────────────────────────────── */
 
 .mobileMenu {
-	max-width: 800px;
+	width: 90%;
 	margin: 0.5rem auto 0;
 	background: var(--glass-bg);
 	backdrop-filter: blur(12px);
@@ -168,10 +168,15 @@
 		opacity 0.2s var(--cubic-ease);
 }
 
-.mobileMenu:global(.open) {
+.mobileMenu[data-open] {
 	max-height: 320px;
 	opacity: 1;
 	pointer-events: all;
+	overflow-y: scroll;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 .mobileInner {
@@ -198,18 +203,18 @@
 	transition:
 		background 0.2s var(--cubic-ease),
 		color 0.2s var(--cubic-ease);
-}
 
-.mobileLink:hover {
-	background: var(--bg-secondary);
-	color: var(--text-primary);
-}
+	&:hover {
+		background: var(--bg-tertiary);
+		color: var(--text-primary);
+	}
 
-.mobileLink.active {
-	color: var(--text-primary);
-	background: var(--bg-secondary);
-	cursor: default;
-	pointer-events: none;
+	&.active {
+		color: var(--text-primary);
+		background: var(--bg-tertiary);
+		cursor: default;
+		pointer-events: none;
+	}
 }
 
 .mobileDot {
@@ -234,8 +239,6 @@
 		box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-color) 0%, transparent);
 	}
 }
-
-/* ── Responsive ────────────────────────────────────── */
 
 @media (max-width: 640px) {
 	.links {
