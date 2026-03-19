@@ -80,8 +80,8 @@
 }
 
 :root {
-	--primary-color: hsla(160, 79%, 39%, 1);
-	--primary-color-active: hsl(160, 80.5%, 61.8%);
+	--primary-color: hsla(336, 80%, 58%, 1);
+	--primary-color-active: hsl(336, 82%, 75%);
 	/* Backgrounds - smooth backs */
 	--bg-primary: hsla(0, 0%, 5%, 1); /* only background */
 	--bg-secondary: hsla(
@@ -147,8 +147,8 @@
 
 /* LIGHT MODE - Grises claros refinados */
 [data-theme="light"] {
-	--primary-color: hsla(158, 77%, 42%, 1);
-	--primary-color-active: hsl(160, 79.9%, 27.3%);
+	--primary-color: hsla(336, 72%, 48%, 1);
+	--primary-color-active: hsl(336, 74%, 32%);
 	/* Backgrounds - Blancos suaves */
 	--bg-primary: hsla(0, 0%, 95%, 1);
 	--bg-secondary: hsla(0, 0%, 90%, 1);
@@ -202,6 +202,7 @@ body {
 	font-family: var(--ff-body);
 	background: var(--bg-primary);
 	color: var(--text-secondary);
+	min-height: 100vh;
 	min-height: 100dvh;
 	max-width: 1200px;
 	overflow-x: hidden;
