@@ -1,0 +1,34 @@
+.wrap {
+	max-width: 640px;
+	margin: 0 auto;
+	padding: 1rem 0 4rem;
+}
+
+.eyebrow {
+	font-family: var(--ff-headings);
+	font-size: 0.75rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--primary-color);
+}
+
+.title {
+	font-size: clamp(1.8rem, 4vw, 2.4rem);
+	font-weight: 700;
+	letter-spacing: -0.03em;
+	line-height: 1.1;
+	margin: 1rem 0 0.5rem;
+}
+
+.desc {
+	font-size: 0.875rem;
+	color: var(--text-muted);
+	line-height: 1.7;
+	margin-bottom: 2rem;
+}
+
+@media (max-width: 640px) {
+	.wrap {
+		padding-bottom: 2rem;
+	}
+}
