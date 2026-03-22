@@ -40,26 +40,30 @@ import PreviewURL from "./PreviewURL.astro";
 		function updateChips(fields: Record<string, string>): void {
 			const chipsContainer = document.getElementById("utm-chips");
 			if (!chipsContainer) return;
-			chipsContainer.innerHTML = Object.entries(fields)
-				.map(
-					([key, value]) =>
-						`<div data-chip="${value ? "on" : "off"}">${key}</div>`,
-				)
-				.join("");
+			Object.entries(fields).forEach(([key, value]) => {
+				const chip = chipsContainer.querySelector(`[data-key="${key}"]`);
+				if (chip) chip.setAttribute("data-chip", value ? "on" : "off");
+			});
 		}
 
 		// Shows the result preview box with the generated URL
 		function showResult(generatedUrl: string): void {
 			const output = document.getElementById("utm-output");
 			const result = document.getElementById("utm-result");
+			const copyBtn = document.getElementById("utm-copy-url-btn") as HTMLButtonElement | null;
 			if (output) output.textContent = generatedUrl;
-			if (result) result.dataset.show = "true";
+			if (result) result.dataset.ready = "true";
+			if (copyBtn) copyBtn.disabled = false;
 		}
 
-		// Hides the result preview box
+		// Clears the result preview box
 		function hideResult(): void {
+			const output = document.getElementById("utm-output");
 			const result = document.getElementById("utm-result");
-			delete result?.dataset.show;
+			const copyBtn = document.getElementById("utm-copy-url-btn") as HTMLButtonElement | null;
+			if (output) output.textContent = "";
+			delete result?.dataset.ready;
+			if (copyBtn) copyBtn.disabled = true;
 		}
 
 		// Shows a temporary toast notification at the bottom of the screen

@@ -6,6 +6,12 @@ import styles from "./previewUrl.module.css";
 	id="utm-chips"
 	class={styles.chipsRow}
 >
+	<div data-chip="off" data-key="utm_source">utm_source</div>
+	<div data-chip="off" data-key="utm_medium">utm_medium</div>
+	<div data-chip="off" data-key="utm_campaign">utm_campaign</div>
+	<div data-chip="off" data-key="utm_term">utm_term</div>
+	<div data-chip="off" data-key="utm_content">utm_content</div>
+	<div data-chip="off" data-key="utm_id">utm_id</div>
 </section>
 
 <section
@@ -13,7 +19,11 @@ import styles from "./previewUrl.module.css";
 	class={styles.result}
 >
 	<div class={styles.resultHead}>
-		<span class={styles.resultLabel}>URL ready</span>
+		<span
+			id="utm-result-label"
+			class={styles.resultLabel}
+			>Generated URL</span
+		>
 	</div>
 	<div class={styles.resultBody}>
 		<div
@@ -25,6 +35,7 @@ import styles from "./previewUrl.module.css";
 			<button
 				id="utm-copy-url-btn"
 				class={styles.btnPrimary}
+				disabled
 				>Copy URL</button
 			>
 			<a
