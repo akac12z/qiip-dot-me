@@ -41,7 +41,11 @@
 	font-size: 0.82rem;
 	color: var(--text-tertiary);
 	line-height: 1.6;
-	max-width: 52ch;
+	max-width: 60ch;
+
+	.domain {
+		color: var(--primary-color);
+	}
 }
 
 .meta {
