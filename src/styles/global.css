@@ -130,6 +130,23 @@
 	--cubic-ease: cubic-bezier(0.4, 0, 0.2, 1);
 
 	/* ---- Type scale (size / line-height / all) ---------------- */
+	/* customs texts for homes */
+	--page-eyebrow-fs: 0.75rem;
+	--page-eyebrow-fw: 700;
+	--page-eyebrow-ls: 0.1em;
+	--page-eyebrow-lh: 1.6;
+	--page-eyebrow-tt: uppercase;
+
+	--page-titles-fs: clamp(1.8rem, 4vw, 2.4rem);
+	--page-titles-fw: 700;
+	--page-titles-ls: -0.03em;
+	--page-titles-lh: 1;
+
+	--page-desc-fs: 0.85rem;
+	--page-desc-lh: 1.7;
+
+	/* general styles */
+
 	--t-h1: 2rem; /*  32px */
 	--lh-h1: 1.6;
 	--f-h1-style: 700 2rem/1.6 var(--ff-headings);
