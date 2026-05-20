@@ -80,45 +80,29 @@
 }
 
 :root {
-	--primary-color: hsla(336, 80%, 58%, 1);
-	--primary-color-active: hsl(336, 82%, 75%);
+	--accent: rgb(62, 165, 234);
+	--accent-active: rgb(152, 202, 235);
 	/* Backgrounds - smooth backs */
-	--bg-primary: hsla(0, 0%, 5%, 1); /* only background */
-	--bg-secondary: hsla(
-		0,
-		0%,
-		10%,
-		1
-	); /* to differentiate large areas of the UI */
-	--bg-tertiary: hsla(0, 0%, 15%, 1); /* neutral interactive elements */
-	--bg-elevated: hsla(0, 0%, 20%, 1); /* overlapping elements */
-	--bg-card: hsla(0, 0%, 25%, 1); /* content containers */
+	--bg: #0d0d0d; /* only background */
+	--surface-1: #1a1a1a; /* to differentiate large areas of the UI */
+	--surface-2: #262626; /* neutral interactive elements */
+	--surface-3: #333333; /* overlapping elements */
+	/* --bg-card: hsla(0, 0%, 25%, 1); */ /*content containers */
 
 	/* Text - smooth whites */
-	--text-primary: hsla(0, 0%, 95%, 1); /* titles */
-	--text-secondary: hsla(0, 0%, 85%, 1); /* body text */
-	--text-tertiary: hsla(0, 0%, 75%, 1); /* secondary infomation */
-	--text-muted: hsla(0, 0%, 55%, 1); /* placeholders */
+	--fg: hsla(0, 0%, 95%, 1); /* titles */
+	--fg-2: hsla(0, 0%, 85%, 1); /* body text */
+	--fg-3: rgb(191, 191, 191); /* secondary infomation */
+	--fg-muted: rgb(191, 191, 191); /* placeholders */
 
 	/* Borders */
-	--border-color: hsla(0, 0%, 45%, 1); /* standard border */
-	--border-light: hsla(0, 0%, 50%, 1); /* hover elements */
-	--border-focus: hsla(0, 0%, 55%, 1); /* active elements */
-
-	--border-radius: 6px;
-
-	/* Accents */
-	--color-primary: hsla(0, 0%, 95%, 1); /* primary bottons */
-	--color-primary-hover: hsla(0, 0%, 90%, 1); /* primary bottons hover */
-	--color-primary-dark: hsla(0, 0%, 85%, 1); /* primary bottons dark */
-
-	--color-accent: hsla(0, 0%, 85%, 1); /* secondary bottons */
-	--color-accent-hover: hsla(0, 0%, 80%, 1); /* secondary bottons hover */
+	--border: #26262c;
+	--border-2: #34343b;
+	--border-3: #5d5d60;
 
 	/* Shadows */
-	--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3); /* bottons */
-	--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4); /* cards */
-	--shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5); /* dialogs */
+	--shadow-sm: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+	--shadow-md: 0 0.75rem 2rem -1rem rgba(0, 0, 0, 0.4);
 
 	/* Glass effect */
 	--glass-bg: rgba(26, 26, 26, 0.7); /* glass effect */
@@ -136,6 +120,7 @@
 	/* fonts */
 	--ff-headings: "Sono", sans-serif;
 	--ff-body: "Inter", sans-serif;
+	--ff-mono: monospace;
 
 	/* timer */
 	--timer-05s: 0.5s;
@@ -143,48 +128,138 @@
 
 	/* transitions */
 	--cubic-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+	/* ---- Type scale (size / line-height / all) ---------------- */
+	--t-h1: 2rem; /*  32px */
+	--lh-h1: 1.6;
+	--f-h1-style: 700 2rem/1.6 var(--ff-headings);
+	--t-h2: 1.5rem; /*20px*/
+	--lh-h2: 1.6;
+	--f-h2-style: 700 1.5rem/1.6 var(--ff-headings);
+	--t-h3: 1.25rem; /*18px*/
+	--lh-h3: 1.6;
+	--f-h3-style: 700 1.25rem/1.6 var(--ff-headings);
+	--t-h4: 1.125rem; /*16px*/
+	--lh-h4: 1.5;
+	--f-h4-style: 700 1.125rem/1.5 var(--ff-headings);
+	--t-h5: 1rem; /*16px*/
+	--lh-h5: 1.5;
+	--t-h6: 1rem; /*16px*/
+	--lh-h6: 1.5;
+	--f-h5h6-style: 700 1rem/1.5 var(--ff-headings);
+
+	--t-body: 1rem; /*16px*/
+	--lh-body: 1.5;
+	--f-body-style: 500 1rem/1.5 var(--ff-body);
+
+	--t-mili: 0.75rem; /*12px*/
+	--lh-mili: 1.4;
+	--f-mili-style: 500 0.75rem/1.4 var(--ff-body);
+	--t-nano: 0.625rem; /*10px*/
+	--lh-nano: 1.4;
+	--f-nano-style: 500 0.625rem/1.4 var(--ff-body);
+	--t-pico: 0.5rem; /*8px*/
+	--lh-pico: 1.4;
+	--f-pico-style: 500 0.5rem/1.4 var(--ff-body);
+
+	--tracking-wide: 0.025em; /* tracking-wide     */
+	--tracking-wider: 0.05em; /* tracking-wider    */
+	--tracking-widest: 0.1em; /* tracking-widest   */
+
+	/* ---- Spacing (4pt) ---------------------------------- */
+	--sp-0: 0rem; /* 0px */
+	--sp-05: 0.0625rem; /* 1px */
+	--sp-1: 0.125rem; /* 2px */
+	--sp-2: 0.25rem; /*   4px */
+	--sp-3: 0.5rem; /*   8px */
+	--sp-4: 0.75rem; /*  12px */
+	--sp-5: 0.875rem; /*  14px */
+	--sp-6: 1rem; /*  16px */
+	--sp-7: 1.25rem; /*  20px */
+	--sp-8: 1.5rem; /*  24px */
+	--sp-9: 2rem; /*  32px */
+	--sp-10: 2.5rem; /*  40px */
+	--sp-11: 3rem; /*  48px */
+	--sp-12: 3.5rem; /*  56px */
+	--sp-13: 4rem; /*  64px */
+	--sp-14: 4.5rem; /*  72px */
+	--sp-15: 5rem; /*  80px */
+	--sp-16: 5.5rem; /*  88px */
+	--sp-17: 6rem; /*  96px */
+	--sp-18: 6.5rem; /* 104px */
+	--sp-19: 7rem; /* 112px */
+	--sp-20: 7.5rem; /* 120px */
+	--sp-21: 8rem; /* 128px */
+	--sp-22: 9rem; /* 144px */
+	--sp-23: 12rem; /* 192px */
+	--sp-24: 16rem; /* 256px */
+	--sp-25: 18rem; /* 288px */
+	--sp-26: 24rem; /* 384px */
+	--sp-27: 28.75rem; /* 460px */
+	--sp-28: 32rem; /* 512px */
+
+	/* ---- Screens -----------------------------------------*/
+	--screen-xs: 28.75rem; /*  460px — mobile large     */
+	--screen-sm: 40rem; /*  640px — tablet portrait  */
+	--screen-md: 48rem; /*  768px — tablet landscape */
+	--screen-n: 56rem; /* 896px - normal view */
+	--screen-lg: 64rem; /* 1024px — desktop          */
+	--screen-xl: 80rem; /* 1280px — desktop wide     */
+	--screen-2xl: 96rem; /* 1536px — desktop ultrawide*/
+
+	/* ---- Height ------------------------------------------*/
+	--viewport-full: 100vh;
+	--viewport-full-new: 100dvh;
+
+	/* ---- Radio ------------------------------------------ */
+	--r-xxs: 0.25rem;
+	--r-xs: 0.375rem;
+	--r-sm: 0.5rem;
+	--r-md: 0.75rem;
+	--r-lg: 1.25rem;
+	--r-pill: 60rem;
+
+	/* ---- Elevation / lines ------------------------------ */
+	--hairline: 0.0625rem solid var(--border);
+	--hairline-2: 0.0625rem solid var(--border-2);
+	--shadow-1: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+	--shadow-2: 0 0.75rem 2rem -1rem rgba(0, 0, 0, 0.4);
+	--inset-top: inset 0 0.0625rem 0 rgba(255, 255, 255, 0.06);
+
+	/* ---- Motion ----------------------------------------- */
+	--ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+	--t-fast: 120ms;
+	--t-base: 200ms;
+	--t-slow: 400ms;
 }
 
 /* LIGHT MODE - Grises claros refinados */
 [data-theme="light"] {
-	--primary-color: hsla(336, 72%, 48%, 1);
-	--primary-color-active: hsl(336, 74%, 32%);
+	--accent: hsl(204, 80%, 58%);
+	--accent-active: hsl(204, 88%, 38%);
+
 	/* Backgrounds - Blancos suaves */
-	--bg-primary: hsla(0, 0%, 95%, 1);
-	--bg-secondary: hsla(0, 0%, 90%, 1);
-	--bg-tertiary: hsla(0, 0%, 85%, 1);
-	--bg-elevated: hsla(0, 0%, 80%, 1);
-	--bg-card: hsla(0, 0%, 75%, 1);
+	--bg: #f2f2f2;
+	--surface-1: #e6e6e6;
+	--surface-2: #d9d9d9;
+	--surface-3: #cccccc;
 
 	/* Text - Negros suaves */
-	--text-primary: hsla(0, 0%, 15%, 1);
-	--text-secondary: hsla(0, 0%, 25%, 1);
-	--text-tertiary: hsla(0, 0%, 35%, 1);
-	--text-muted: hsla(0, 0%, 45%, 1);
+	--fg: hsla(0, 0%, 15%, 1);
+	--fg-2: hsla(0, 0%, 25%, 1);
+	--fg-3: hsla(0, 0%, 35%, 1);
+	--fg-muted: hsla(0, 0%, 35%, 1);
 
 	/* Borders */
-	--border-color: hsla(0, 0%, 45%, 1);
-	--border-light: hsla(0, 0%, 50%, 1);
-	--border-focus: hsla(0, 0%, 55%, 1);
-
-	/* Accents */
-	--color-primary: hsla(0, 0%, 95%, 1);
-	--color-primary-hover: hsla(0, 0%, 90%, 1);
-	--color-primary-dark: hsla(0, 0%, 85%, 1);
-
-	--color-accent: hsla(0, 0%, 85%, 1);
-	--color-accent-hover: hsla(0, 0%, 80%, 1);
-
-	/* Shadows */
-	--shadow-sm: 0 1px 3px hsla(0, 0%, 0%, 0.06);
-	--shadow-md: 0 4px 12px hsla(0, 0%, 0%, 0.08);
-	--shadow-lg: 0 8px 24px hsla(0, 0%, 0%, 0.1);
+	--border: #cbc9c2;
+	--border-2: #93918b;
 
 	/* Glass effect */
 	--glass-bg: hsla(0, 0%, 100%, 0.7);
 	--glass-border: hsla(0, 0%, 89%, 1);
 }
 
+/* === RESET ====================== */
 *,
 *::before,
 *::after {
@@ -193,6 +268,92 @@
 	padding: 0;
 }
 
+*:not(dialog) {
+	margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		interpolate-size: allow-keywords;
+	}
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+	color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+}
+p {
+	text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+	line-height: 1.1;
+}
+
+#root,
+#__next {
+	isolation: isolate;
+}
+
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+}
+
+button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+:root {
+	color-scheme: light dark;
+}
+
+/* ========================= */
+
 html {
 	scroll-behavior: smooth;
 	overflow-x: hidden;
@@ -200,8 +361,8 @@ html {
 
 body {
 	font-family: var(--ff-body);
-	background: var(--bg-primary);
-	color: var(--text-secondary);
+	background: var(--bg);
+	color: var(--fg-2);
 	min-height: 100vh;
 	min-height: 100dvh;
 	max-width: 1200px;
@@ -212,8 +373,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 
 	&::selection {
-		background-color: var(--primary-color);
-		color: var(--text-primary);
+		background-color: var(--accent);
+		color: var(--fg);
 	}
 }
 
@@ -221,78 +382,11 @@ body {
 	animation: fadeUp var(--timer-05s) var(--cubic-ease) both;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: var(--ff-headings);
-	color: var(--text-primary);
-}
-
-h1 {
-	font-size: 1.8rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-}
-
-h4 {
-	font-size: 1rem;
-}
-
-h5 {
-	font-size: 0.875rem;
-}
-
-h6 {
-	font-size: 0.75rem;
-}
-
 main {
 	margin: 0 auto;
-	padding: 2rem 1.5rem;
+	padding: var(--sp-9) var(--sp-8);
 	width: 100%;
 	flex: 1;
-}
-
-.primary-btn {
-	display: inline-flex;
-	align-items: center;
-	padding: 0.55rem 1.25rem;
-	border-radius: var(--border-radius); /* 6px */
-	background: transparent;
-	border: none;
-	color: var(--text-primary);
-	font-family: var(--ff-headings);
-	font-size: 0.85rem;
-	font-weight: 600;
-	cursor: pointer;
-	text-decoration: none;
-	overflow: hidden;
-
-	&:hover {
-		background: var(--bg-secondary);
-	}
-
-	&:active {
-		scale: 0.95;
-	}
-
-	&.active {
-		background: none;
-		cursor: default;
-		pointer-events: none;
-		text-decoration: underline;
-		text-underline-offset: 0.4rem;
-		text-decoration-color: var(--primary-color);
-	}
 }
 
 /* ANIMATIONS */
@@ -334,8 +428,8 @@ main {
 }
 
 /*responsive*/
-@media (max-width: 640px) {
+@media (width <= 40rem) {
 	main {
-		padding: 0 0.5rem;
+		padding: 0 var(--sp-3);
 	}
 }
