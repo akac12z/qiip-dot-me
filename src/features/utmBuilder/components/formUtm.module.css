@@ -125,7 +125,7 @@
 		left: 50%;
 		transform: translateX(-50%);
 
-		background: var(--surface-1);
+		background-color: var(--surface-1);
 		border: var(--sp-05) var(--border);
 		border-radius: var(--r-xs);
 		padding: var(--sp-2) var(--sp-3);

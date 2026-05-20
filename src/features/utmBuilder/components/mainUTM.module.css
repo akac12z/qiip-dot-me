@@ -1,44 +1,46 @@
 .wrap {
-	max-width: 640px;
+	max-width: var(--screen-sm);
 	margin: 0 auto;
-	padding: 1rem 0 4rem;
-}
+	padding: var(--sp-6) 0 var(--sp-13);
 
-.eyebrow {
-	font-family: var(--ff-headings);
-	font-size: 0.75rem;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-	color: var(--primary-color);
-}
+	& .eyebrow {
+		font-size: var(--page-eyebrow-fs);
+		font-weight: var(--page-eyebrow-fw);
+		letter-spacing: var(--page-eyebrow-ls);
+		line-height: var(--page-eyebrow-lh);
+		text-transform: var(--page-eyebrow-tt);
+		color: var(--accent);
+	}
 
-.title {
-	font-size: clamp(1.8rem, 4vw, 2.4rem);
-	font-weight: 700;
-	letter-spacing: -0.03em;
-	line-height: 1.1;
-	margin: 1rem 0 0.5rem;
-}
+	& .title {
+		font-size: var(--page-titles-fs);
+		font-weight: var(--page-titles-fw);
+		letter-spacing: var(--page-titles-ls);
+		line-height: var(--page-titles-lh);
+		margin: var(--sp-6) 0 var(--sp-3);
+	}
 
-.desc {
-	font-size: 0.875rem;
-	color: var(--text-muted);
-	line-height: 1.7;
-	margin-bottom: 2rem;
+	& .desc {
+		font-size: var(--page-desc-fs);
+		line-height: var(--page-desc-lh);
+		color: var(--fg-muted);
+		margin-bottom: var(--sp-9);
+	}
 }
 
 .toast {
 	position: fixed;
-	bottom: 1.5rem;
+	bottom: var(--sp-8);
 	left: 50%;
 	transform: translateX(-50%) translateY(8px);
-	background: var(--bg-elevated);
-	border: 1px solid var(--border-color);
-	color: var(--text-primary);
+	background: var(--surface-3);
+	border: var(--sp-05) solid var(--success-color);
+	background-color: color-mix(in srgb, var(--success-color) 10%, transparent);
+	color: var(--success-color);
 	font-family: var(--ff-headings);
-	font-size: 0.78rem;
-	padding: 0.55rem 1rem;
-	border-radius: var(--border-radius);
+	font-size: var(--t-mili);
+	padding: var(--sp-3) var(--sp-6);
+	border-radius: var(--r-xs);
 	opacity: 0;
 	transition:
 		opacity 0.25s var(--cubic-ease),
@@ -46,7 +48,7 @@
 	pointer-events: none;
 	z-index: 999;
 	white-space: nowrap;
-	box-shadow: var(--shadow-lg);
+	box-shadow: var(--shadow-2);
 }
 
 .toast[data-show] {
@@ -54,9 +56,9 @@
 	transform: translateX(-50%) translateY(0);
 }
 
-@media (max-width: 640px) {
+@media (width <= 40rem) {
 	.wrap {
-		padding-bottom: 2rem;
-		max-width: 480px;
+		padding-bottom: var(--sp-9);
+		max-width: var(--screen-xs);
 	}
 }

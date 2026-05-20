@@ -5,8 +5,8 @@ import PreviewURL from "./PreviewURL.astro";
 ---
 
 <section class={styles.wrap}>
-	<span class={styles.eyebrow}>01 — UTM Builder</span>
-	<h2 class={styles.title}>Build your tracking URL</h2>
+	<h2 class={styles.eyebrow}>01 — UTM Builder</h2>
+	<h3 class={styles.title}>Build your tracking URL</h3>
 	<p class={styles.desc}>
 		Fill in the fields and get your UTM URL ready to paste into your campaign.
 	</p>
@@ -50,7 +50,9 @@ import PreviewURL from "./PreviewURL.astro";
 		function showResult(generatedUrl: string): void {
 			const output = document.getElementById("utm-output");
 			const result = document.getElementById("utm-result");
-			const copyBtn = document.getElementById("utm-copy-url-btn") as HTMLButtonElement | null;
+			const copyBtn = document.getElementById(
+				"utm-copy-url-btn",
+			) as HTMLButtonElement | null;
 			if (output) output.textContent = generatedUrl;
 			if (result) result.dataset.ready = "true";
 			if (copyBtn) copyBtn.disabled = false;
@@ -60,7 +62,9 @@ import PreviewURL from "./PreviewURL.astro";
 		function hideResult(): void {
 			const output = document.getElementById("utm-output");
 			const result = document.getElementById("utm-result");
-			const copyBtn = document.getElementById("utm-copy-url-btn") as HTMLButtonElement | null;
+			const copyBtn = document.getElementById(
+				"utm-copy-url-btn",
+			) as HTMLButtonElement | null;
 			if (output) output.textContent = "";
 			delete result?.dataset.ready;
 			if (copyBtn) copyBtn.disabled = true;
