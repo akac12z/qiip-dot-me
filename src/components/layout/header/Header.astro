@@ -8,97 +8,90 @@ const allTools = TOOLS;
 ---
 
 <header class={styles.header}>
-	<nav class={styles.pill}>
-		<a
-			href="/"
-			class={styles.logo}
-			>qiip.me</a
-		>
+  <nav class={styles.pill}>
+    <a href="/" class={styles.logo}>qiip.me</a>
 
-		<ul class={styles.links}>
-			{
-				allTools.map(({ href, toolName }) => (
-					<li>
-						<a
-							href={href}
-							class={`${styles.link} ${path === href ? styles.active : ""}`}
-						>
-							{toolName}
-						</a>
-					</li>
-				))
-			}
-		</ul>
+    <ul class={styles.links}>
+      {
+        allTools.map(({ href, toolName }) => (
+          <li>
+            <a
+              href={href}
+              class={`${styles.link} ${path === href ? styles.active : ""}`}
+            >
+              {toolName}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
 
-		<div class={styles.right}>
-			<button
-				class={styles.burger}
-				id="burgerBtn"
-				aria-label="Toggle menu"
-				aria-expanded="false"
-			>
-				<span></span>
-				<span></span>
-				<span></span>
-			</button>
-			<ToggleTheme client:only="react" />
-		</div>
-	</nav>
+    <div class={styles.right}>
+      <button
+        class={styles.burger}
+        id="burgerBtn"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ToggleTheme client:only="react" />
+    </div>
+  </nav>
 
-	<div
-		class={styles.mobileMenu}
-		id="mobileMenu"
-	>
-		<div class={styles.mobileInner}>
-			<ul class={styles.mobileLinks}>
-				{
-					allTools.map(({ href, toolName }) => {
-						const isActive = path === href;
-						return (
-							<li>
-								<a
-									href={href}
-									class={`${styles.mobileLink} ${isActive ? styles.active : ""}`}
-								>
-									{toolName}
-									{isActive && <span class={styles.mobileDot} />}
-								</a>
-							</li>
-						);
-					})
-				}
-			</ul>
-		</div>
-	</div>
+  <div class={styles.mobileMenu} id="mobileMenu">
+    <div class={styles.mobileInner}>
+      <ul class={styles.mobileLinks}>
+        {
+          allTools.map(({ href, toolName }) => {
+            const isActive = path === href;
+            return (
+              <li>
+                <a
+                  href={href}
+                  class={`${styles.mobileLink} ${isActive ? styles.active : ""}`}
+                >
+                  {toolName}
+                  {isActive && <span class={styles.mobileDot} />}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </div>
 </header>
 
 <script>
-	document.addEventListener("astro:page-load", () => {
-		const burger = document.getElementById("burgerBtn") as HTMLButtonElement;
-		const menu = document.getElementById("mobileMenu") as HTMLElement;
+  document.addEventListener("astro:page-load", () => {
+    const burger = document.getElementById("burgerBtn") as HTMLButtonElement;
+    const menu = document.getElementById("mobileMenu") as HTMLElement;
 
-		if (!burger || !menu) return;
+    if (!burger || !menu) return;
 
-		function close(): void {
-			burger!.setAttribute("aria-expanded", "false");
-			menu!.removeAttribute("data-open");
-		}
+    function close(): void {
+      burger!.setAttribute("aria-expanded", "false");
+      menu!.removeAttribute("data-open");
+    }
 
-		function toggle(): void {
-			const isOpen = burger!.getAttribute("aria-expanded") === "true";
-			burger!.setAttribute("aria-expanded", String(!isOpen));
-			menu!.toggleAttribute("data-open", !isOpen);
-		}
+    function toggle(): void {
+      const isOpen = burger!.getAttribute("aria-expanded") === "true";
+      burger!.setAttribute("aria-expanded", String(!isOpen));
+      menu!.toggleAttribute("data-open", !isOpen);
+    }
 
-		function onClickOutside(e: MouseEvent): void {
-			const target = e.target as Node;
-			if (!burger!.contains(target) && !menu!.contains(target)) close();
-		}
+    function onClickOutside(e: MouseEvent): void {
+      const target = e.target as Node;
+      if (!burger!.contains(target) && !menu!.contains(target)) close();
+    }
 
-		burger.addEventListener("click", toggle);
-		menu.querySelectorAll("a").forEach((link) => {
-			link.addEventListener("click", close);
-		});
-		document.addEventListener("mousedown", onClickOutside);
-	});
+    burger.addEventListener("click", toggle);
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", close);
+    });
+    document.addEventListener("mousedown", onClickOutside);
+  });
 </script>
