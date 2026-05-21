@@ -165,9 +165,9 @@
 	--lh-h6: 1.5;
 	--f-h5h6-style: 700 1rem/1.5 var(--ff-headings);
 
-	--t-body: 1rem; /*16px*/
+	--t-body: 0.875rem; /*14px*/
 	--lh-body: 1.5;
-	--f-body-style: 500 1rem/1.5 var(--ff-body);
+	--f-body-style: 500 0.875rem/1.5 var(--ff-body);
 
 	--t-mili: 0.75rem; /*12px*/
 	--lh-mili: 1.4;
