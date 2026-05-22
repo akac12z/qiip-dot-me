@@ -1,7 +1,8 @@
 ---
 import styles from "./header.module.css";
-import { ToggleTheme } from "@/ui/darkmode/ToggleTheme";
-import { TOOLS } from "@/features/home/tools/tools";
+import { ToggleTheme } from "@/ui/darkmode/ToggleTheme.tsx";
+import BurgerMenu from "./bm/BurgerMenu.tsx";
+import { TOOLS } from "@/features/home/tools/tools.ts";
 
 const path = Astro.url.pathname;
 const allTools = TOOLS;
@@ -31,74 +32,11 @@ const allTools = TOOLS;
 		</ul>
 
 		<div class={styles.right}>
-			<button
-				class={styles.burger}
-				id="burgerBtn"
-				aria-label="Toggle menu"
-				aria-expanded="false"
-			>
-				<span></span>
-				<span></span>
-				<span></span>
-			</button>
+			<BurgerMenu
+				tools={allTools}
+				client:only="react"
+			/>
 			<ToggleTheme client:only="react" />
 		</div>
 	</nav>
-
-	<div
-		class={styles.mobileMenu}
-		id="mobileMenu"
-	>
-		<div class={styles.mobileInner}>
-			<ul class={styles.mobileLinks}>
-				{
-					allTools.map(({ href, toolName }) => {
-						const isActive = path === href;
-						return (
-							<li>
-								<a
-									href={href}
-									class={`${styles.mobileLink} ${isActive ? styles.active : ""}`}
-								>
-									{toolName}
-									{isActive && <span class={styles.mobileDot} />}
-								</a>
-							</li>
-						);
-					})
-				}
-			</ul>
-		</div>
-	</div>
 </header>
-
-<script>
-	document.addEventListener("astro:page-load", () => {
-		const burger = document.getElementById("burgerBtn") as HTMLButtonElement;
-		const menu = document.getElementById("mobileMenu") as HTMLElement;
-
-		if (!burger || !menu) return;
-
-		function close(): void {
-			burger!.setAttribute("aria-expanded", "false");
-			menu!.removeAttribute("data-open");
-		}
-
-		function toggle(): void {
-			const isOpen = burger!.getAttribute("aria-expanded") === "true";
-			burger!.setAttribute("aria-expanded", String(!isOpen));
-			menu!.toggleAttribute("data-open", !isOpen);
-		}
-
-		function onClickOutside(e: MouseEvent): void {
-			const target = e.target as Node;
-			if (!burger!.contains(target) && !menu!.contains(target)) close();
-		}
-
-		burger.addEventListener("click", toggle);
-		menu.querySelectorAll("a").forEach((link) => {
-			link.addEventListener("click", close);
-		});
-		document.addEventListener("mousedown", onClickOutside);
-	});
-</script>
