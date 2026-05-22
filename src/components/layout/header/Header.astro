@@ -34,6 +34,7 @@ const allTools = TOOLS;
 		<div class={styles.right}>
 			<BurgerMenu
 				tools={allTools}
+				currentPath={path}
 				client:only="react"
 			/>
 			<ToggleTheme client:only="react" />

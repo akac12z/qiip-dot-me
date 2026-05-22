@@ -1,0 +1,155 @@
+.backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 1;
+}
+
+.burger {
+	position: relative;
+	z-index: 3; /* above backdrop (1) and mobileMenu (2) */
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--sp-2);
+	width: var(--sp-9);
+	height: var(--sp-9);
+	background-color: var(--glass-bg);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border: none;
+	box-shadow: var(--shadow-sm);
+	cursor: pointer;
+	padding: 0;
+	border-radius: 50%;
+	color: var(--fg);
+
+	&:hover {
+		box-shadow: var(--shadow-md);
+	}
+
+	&:active {
+		transform: scale(0.9);
+	}
+
+	& span {
+		display: block;
+		width: var(--sp-6);
+		height: var(--sp-1);
+		background-color: var(--fg-2);
+		border-radius: 2px;
+		transition:
+			transform 0.3s var(--ease),
+			opacity 0.2s var(--ease);
+	}
+
+	&[aria-expanded="true"] span:nth-child(1) {
+		transform: translateY(5.5px) rotate(45deg);
+	}
+	&[aria-expanded="true"] span:nth-child(2) {
+		opacity: 0;
+	}
+
+	&[aria-expanded="true"] span:nth-child(3) {
+		transform: translateY(-5.5px) rotate(-45deg);
+	}
+}
+
+.mobileMenu {
+	/* <nav> has no position, so this is relative to <header> (position:sticky) */
+	position: absolute;
+	top: 100%;
+	left: 5%;
+	width: 90%;
+	z-index: 2;
+	margin-top: var(--sp-3);
+	background-color: var(--glass-bg);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: var(--sp-05) solid var(--glass-border);
+	border-radius: var(--r-md);
+	box-shadow: var(--shadow-md);
+	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	pointer-events: none;
+	transition:
+		max-height 0.5s var(--ease),
+		opacity 0.2s var(--ease);
+
+	&[data-open] {
+		max-height: var(--sp-26);
+		opacity: 1;
+		pointer-events: all;
+		overflow-y: scroll;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	& .mobileInner {
+		padding: var(--sp-3);
+	}
+
+	& .mobileLinks {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: var(--sp-1);
+	}
+
+	& .mobileLink {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-size: 0.875rem;
+		font-family: var(--ff-headings);
+		color: var(--fg-2);
+		text-decoration: none;
+		padding: 0.7rem 0.875rem;
+		border-radius: 10px;
+		transition:
+			background-color 0.2s var(--ease),
+			color 0.2s var(--ease);
+
+		&:hover {
+			background-color: var(--surface-2);
+			color: var(--fg);
+		}
+
+		&.active {
+			color: var(--fg);
+			background-color: var(--surface-2);
+			cursor: default;
+			pointer-events: none;
+		}
+	}
+
+	& .mobileDot {
+		width: var(--sp-3);
+		height: var(--sp-3);
+		border-radius: 50%;
+		background-color: var(--accent);
+		flex-shrink: 0;
+		animation: pulse 1.5s infinite;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 50%, transparent);
+	}
+	70% {
+		box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 0%, transparent);
+	}
+	100% {
+		box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent);
+	}
+}
+
+@media (width <= 48rem) {
+	.burger {
+		display: flex;
+	}
+}
