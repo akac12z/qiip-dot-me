@@ -9,8 +9,8 @@ interface Tool {
 export const TOOLS: Tool[] = [
 	{
 		toolName: "UTM Builder",
-		desc: "Build tracking URLs with source, medium & campaign parameters.",
-		href: "/build-utms",
+		desc: "Build tracking URLs with with your custom parameters.",
+		href: "/utm",
 		onAir: true,
 		number: 1,
 	},
@@ -23,14 +23,14 @@ export const TOOLS: Tool[] = [
 	},
 	{
 		toolName: "Word Counter",
-		desc: "Words, characters, reading time — instantly, as you type.",
+		desc: "Words, characters, reading time — instantly.",
 		href: "/word-count",
 		onAir: false,
 		number: 3,
 	},
 	{
 		toolName: "URL Shortener",
-		desc: "Branded short links. qiip.me/yourbrand/campaign — full control.",
+		desc: "Beautiful branded links. qiip.me/your_brand/campaign — full control.",
 		href: "/shorten-urls",
 		onAir: false,
 		number: 4,
