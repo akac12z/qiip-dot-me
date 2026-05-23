@@ -1,67 +1,68 @@
 .hero {
-	padding: 1rem 0 3rem;
-}
+	padding: var(--sp-6) 0 var(--sp-11);
 
-.h1 {
-	margin-bottom: 2rem;
+	& .h1 {
+		margin-bottom: var(--sp-9);
 
-	& .intro {
-		display: block;
+		& .intro {
+			display: block;
+			font-family: var(--ff-headings);
+			font-size: clamp(0.875rem, 1.5vw, 1rem);
+			font-weight: 400;
+			color: var(--fg-2);
+			letter-spacing: 0.01em;
+			margin-bottom: var(--sp-2);
+		}
+
+		& .claim {
+			font-family: var(--ff-headings);
+			display: block;
+			font-size: clamp(3rem, 8.5vw, 6rem);
+			font-weight: 700;
+			line-height: 0.96;
+			letter-spacing: -0.05em;
+			color: var(--fg);
+		}
+
+		& em {
+			display: block;
+			font-family: var(--ff-headings);
+			font-style: italic;
+			font-weight: 400;
+			color: var(--accent);
+			cursor: pointer;
+		}
+	}
+
+	& .heroFoot {
+		margin: var(--sp-4) 0 var(--sp-8);
+	}
+
+	& .sub {
+		font: var(--f-body-style);
 		font-family: var(--ff-headings);
-		font-size: clamp(0.85rem, 1.5vw, 0.95rem);
-		font-weight: 400;
-		color: var(--text-secondary);
-		letter-spacing: 0.01em;
-		margin-bottom: 0.3rem;
+		color: var(--fg-3);
+		max-width: var(--sp-28);
+
+		& .domain {
+			color: var(--accent);
+		}
 	}
 
-	& .claim {
-		display: block;
-		font-size: clamp(3rem, 8.5vw, 6rem);
-		font-weight: 700;
-		line-height: 0.96;
-		letter-spacing: -0.04em;
-		color: var(--text-primary);
-	}
-
-	& em {
-		font-style: italic;
-		font-weight: 400;
-		color: var(--primary-color);
-		cursor: pointer;
+	& .meta {
+		font: var(--f-mili-style);
+		font-family: var(--ff-headings);
+		color: var(--fg-muted);
+		border-left: var(--sp-1) solid var(--accent);
+		padding-left: var(--sp-4);
 	}
 }
 
-.heroFoot {
-	margin: 0.75rem 0 1.5rem;
-}
-
-.sub {
-	font-family: var(--ff-headings);
-	font-size: 0.82rem;
-	color: var(--text-tertiary);
-	line-height: 1.6;
-	max-width: 60ch;
-
-	.domain {
-		color: var(--primary-color);
-	}
-}
-
-.meta {
-	font-family: var(--ff-headings);
-	font-size: 0.68rem;
-	color: var(--text-muted);
-	letter-spacing: 0.05em;
-	border-left: 2px solid var(--primary-color);
-	padding-left: 0.75rem;
-}
-
-@media (max-width: 640px) {
+@media (width <= 48rem) {
 	.hero {
-		padding: 3.5rem 0 2rem;
+		padding: var(--sp-12) 0 var(--sp-9);
 	}
 	.hero {
-		padding-top: 1.5rem;
+		padding-top: var(--sp-8);
 	}
 }
