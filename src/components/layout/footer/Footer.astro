@@ -1,23 +1,21 @@
 ---
+import styles from "./footer.module.css";
 import Link from "@/ui/links/Link.astro";
 import Heart from "@/icons/Heart.astro";
-import styles from "./footer.module.css";
 ---
 
 <footer class={styles.footer}>
-  <span class={styles.left}>qiip.me - 2026</span>
-  <div class={styles.center}>
-    <span class={styles.footerText}>made with</span>
-    <Heart classes={styles.heart} />
-    <span class={styles.footerText}>by</span>
-    <Link
-      title="ir a la web de Chema F."
-      href="https://c12z.io"
-      text="cz"
-      is_third_party
-      classes={styles.link}
-    />
-
-  </div>
-  <span  class={styles.left}>Attribution tools</span>
+	<span class={styles.left}>qiip.me - 2026</span>
+	<div class={`lettering ${styles.center}`}>
+		<span class={styles.footerText}>made with</span>
+		<Heart classes={styles.heart} />
+		<span class={styles.footerText}>by</span>
+		<Link
+			title="ir a la web de Chema F."
+			href="https://c12z.io"
+			text="cz"
+			classes={styles.link}
+		/>
+	</div>
+	<span class={styles.left}>Attribution tools</span>
 </footer>
