@@ -22,7 +22,8 @@ export default function QrDownload({
 				{QR_FORMATS.map((formatImg) => (
 					<button
 						key={formatImg}
-						className={`${styles.formatBtns} ${format === formatImg ? styles.dlBtnActive : ""}`}
+						className={styles.formatBtns}
+						data-active={format === formatImg}
 						onClick={() => setFormat(formatImg)}
 						type="button"
 					>
