@@ -16,7 +16,8 @@ export default function DotShape({ DOT_LEVEL, setDOT_LEVEL }: DotShapeProps) {
 					<button
 						key={level.value}
 						type="button"
-						className={`${styles.errorToggleBtn} ${DOT_LEVEL === level.value ? styles.errorToggleBtnActive : ""}`}
+						className={styles.errorToggleBtn}
+						data-active={DOT_LEVEL === level.value ? "true" : undefined}
 						onClick={() => setDOT_LEVEL(level.value)}
 					>
 						<span className={styles.errorToggleName}>{level.label}</span>
