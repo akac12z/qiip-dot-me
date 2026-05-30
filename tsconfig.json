@@ -1,26 +1,21 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"],
-      "@/icons/*": ["./src/components/icons/*"],
-      "@/ui/*": ["./src/components/ui/*"],
-      "@/layout/*": ["./src/components/layout/*"],
-      "@/seo/*": ["./src/components/seo/*"],
-      "@/home/*": ["./src/features/home/*"],
-      "@/utmBuilder/*": ["./src/features/utmBuilder/*"],
-      "@/qrGenerator/*": ["./src/features/qrGenerator/*"],
-      "@/wordCounter/*": ["./src/features/wordCounter/*"],
-      "@/shortenUrls/*": ["./src/features/shortenUrls/*"],
-    },
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
+	"extends": "astro/tsconfigs/strict",
+	"include": [".astro/types.d.ts", "**/*"],
+	"exclude": ["dist"],
+	"compilerOptions": {
+		"paths": {
+			"@/*": ["./src/*"],
+			"@/icons/*": ["./src/components/icons/*"],
+			"@/ui/*": ["./src/components/ui/*"],
+			"@/layout/*": ["./src/components/layout/*"],
+			"@/seo/*": ["./src/components/seo/*"],
+			"@/home/*": ["./src/features/home/*"],
+			"@/utmBuilder/*": ["./src/features/utms/*"],
+			"@/qrGenerator/*": ["./src/features/qr/*"],
+			"@/wordCounter/*": ["./src/features/wordCounter/*"],
+			"@/shortenUrls/*": ["./src/features/shortenUrls/*"]
+		},
+		"jsx": "react-jsx",
+		"jsxImportSource": "react"
+	}
 }
