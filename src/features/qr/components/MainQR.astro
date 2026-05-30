@@ -1,14 +1,8 @@
 ---
+import Hero from "@/layout/hero/Hero.astro";
 import QRGenerator from "@/features/qr/components/QRGenerator.tsx";
-import styles from "./qr.module.css";
 ---
 
-<section class={styles.wrap}>
-	<span class={styles.eyebrow}>02 — QR Generator</span>
-	<h2 class={styles.title}>Generate your QR code</h2>
-	<p class={styles.desc}>
-		Paste or write your URL and customize the QR code. They will be ready to
-		scan and download in the format of your choice!
-	</p>
+<Hero href="/qr">
 	<QRGenerator client:only="react" />
-</section>
+</Hero>

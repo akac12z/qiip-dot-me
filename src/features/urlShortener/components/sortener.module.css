@@ -1,0 +1,30 @@
+/* -- Main Sortener --------- */
+.wrap {
+	max-width: var(--screen-sm);
+	margin: 0 auto;
+	padding: var(--sp-6) 0 var(--sp-13);
+
+	& .eyebrow {
+		font-size: var(--page-eyebrow-fs);
+		font-weight: var(--page-eyebrow-fw);
+		letter-spacing: var(--page-eyebrow-ls);
+		line-height: var(--page-eyebrow-lh);
+		text-transform: var(--page-eyebrow-tt);
+		color: var(--accent);
+	}
+
+	& .title {
+		font-size: var(--page-titles-fs);
+		font-weight: var(--page-titles-fw);
+		letter-spacing: var(--page-titles-ls);
+		line-height: var(--page-titles-lh);
+		margin: var(--sp-6) 0 var(--sp-3);
+	}
+
+	& .desc {
+		font-size: var(--page-desc-fs);
+		line-height: var(--page-desc-lh);
+		color: var(--fg-muted);
+		margin-bottom: var(--sp-9);
+	}
+}

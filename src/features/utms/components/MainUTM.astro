@@ -1,13 +1,8 @@
 ---
-import styles from "./utm.module.css";
+import Hero from "@/layout/hero/Hero.astro";
 import UTMBuilder from "./UTMBuilder.tsx";
 ---
 
-<section class={styles.wrap}>
-	<h2 class={styles.eyebrow}>01 — UTM Builder</h2>
-	<h3 class={styles.title}>Build your tracking URL</h3>
-	<p class={styles.desc}>
-		Fill in the fields and get your UTM URL ready to paste into your campaign.
-	</p>
+<Hero href="/utm">
 	<UTMBuilder client:only="react" />
-</section>
+</Hero>

@@ -1,5 +1,6 @@
 interface Tool {
 	toolName: string;
+	titlePage: string;
 	desc: string;
 	href: string;
 	onAir: boolean;
@@ -9,20 +10,23 @@ interface Tool {
 export const TOOLS: Tool[] = [
 	{
 		toolName: "UTM Builder",
-		desc: "Build tracking URLs with with your custom parameters.",
+		titlePage: "Build your tracking URL",
+		desc: "Fill in the fields and get your UTM URL ready to paste into your campaign.",
 		href: "/utm",
 		onAir: true,
 		number: 1,
 	},
 	{
 		toolName: "QR Generator",
-		desc: "Turn any URL into a downloadable QR code for print and offline.",
+		titlePage: "Generate your QR code",
+		desc: "Paste or write your URL and customize the QR code. They will be ready to scan and download in the format of your choice!",
 		href: "/qr",
 		onAir: true,
 		number: 2,
 	},
 	{
 		toolName: "Word Counter",
+		titlePage: "Count your words",
 		desc: "Words, characters, reading time — instantly.",
 		href: "/word-count",
 		onAir: false,
@@ -30,7 +34,8 @@ export const TOOLS: Tool[] = [
 	},
 	{
 		toolName: "URL Shortener",
-		desc: "Beautiful branded links. qiip.me/your_brand/campaign — full control.",
+		titlePage: "Shorten your URLs",
+		desc: "Beautiful branded links: qiip.me/your_brand/campaign — full control.",
 		href: "/shorten-urls",
 		onAir: false,
 		number: 4,
