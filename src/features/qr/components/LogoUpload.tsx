@@ -1,10 +1,9 @@
+import { useRef } from "react";
 import styles from "./qr.module.css";
 
 interface LogoUplProps {
 	logo: string | null;
-	setLogo: React.Dispatch<React.SetStateAction<string | null>>;
-	logoInputRef: React.RefObject<HTMLInputElement | null>;
-	handleLogo: (e: React.ChangeEvent<HTMLInputElement, Element>) => void;
+	onLogoChange: (url: string | null) => void;
 	size: number;
 	setSize: (value: React.SetStateAction<number>) => void;
 	border: boolean;
@@ -13,14 +12,25 @@ interface LogoUplProps {
 
 export default function LogoUpload({
 	logo,
-	setLogo,
-	logoInputRef,
-	handleLogo,
+	onLogoChange,
 	size,
 	setSize,
 	border,
 	setBorder,
 }: LogoUplProps) {
+	const logoInputRef = useRef<HTMLInputElement>(null);
+
+	function handleLogo(e: React.ChangeEvent<HTMLInputElement>) {
+		const file = e.target.files?.[0];
+		if (!file) return;
+		const allowed = ["image/png", "image/jpeg", "image/webp", "image/gif"];
+		if (!allowed.includes(file.type)) return;
+		if (file.size > 2 * 1024 * 1024) return;
+		const reader = new FileReader();
+		reader.onload = (ev) => onLogoChange(ev.target?.result as string);
+		reader.readAsDataURL(file);
+	}
+
 	return (
 		<>
 			<div className={styles.field}>
@@ -44,7 +54,7 @@ export default function LogoUpload({
 						<button
 							className={styles.removeBtn}
 							onClick={() => {
-								setLogo(null);
+								onLogoChange(null);
 								if (logoInputRef.current) logoInputRef.current.value = "";
 							}}
 							type="button"
