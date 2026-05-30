@@ -1,0 +1,19 @@
+---
+import styles from "./hero.module.css";
+import { TOOLS } from "@/features/home/tools/tools";
+
+interface Props {
+	href: string;
+}
+
+const { href } = Astro.props;
+const tool = TOOLS.find((toolPath) => toolPath.href === href);
+const toolNumber = String(tool?.number).padStart(2, "0");
+---
+
+<section class={styles.wrap}>
+	<h2 class={styles.eyebrow}>{toolNumber} — {tool?.toolName}</h2>
+	<h3 class={styles.title}>{tool?.titlePage}</h3>
+	<p class={styles.desc}>{tool?.desc}</p>
+	<slot />
+</section>
