@@ -126,10 +126,8 @@
 	--timer-05s: 0.5s;
 	--timer-2s: 2s;
 
-	/* transitions */
-	--cubic-ease: cubic-bezier(0.4, 0, 0.2, 1);
-
 	/* ---- Type scale (size / line-height / all) ---------------- */
+
 	/* customs texts for homes */
 	--page-eyebrow-fs: 0.75rem;
 	--page-eyebrow-fw: 700;
@@ -179,9 +177,9 @@
 	--lh-pico: 1.4;
 	--f-pico-style: 500 0.5rem/1.4 var(--ff-body);
 
-	--tracking-wide: 0.025em; /* tracking-wide     */
-	--tracking-wider: 0.05em; /* tracking-wider    */
-	--tracking-widest: 0.1em; /* tracking-widest   */
+	--tracking-wide: 0.025em;
+	--tracking-wider: 0.05em;
+	--tracking-widest: 0.1em;
 
 	/* ---- Spacing (4pt) ---------------------------------- */
 	--sp-0: 0rem; /* 0px */
@@ -378,11 +376,11 @@ html {
 
 body {
 	font-family: var(--ff-body);
-	background: var(--bg);
+	background-color: var(--bg);
 	color: var(--fg-2);
 	min-height: 100vh;
 	min-height: 100dvh;
-	max-width: 1200px;
+	max-width: var(--screen-lg);
 	overflow-x: hidden;
 	margin: 0 auto;
 	display: flex;
@@ -396,7 +394,7 @@ body {
 }
 
 .au {
-	animation: fadeUp var(--timer-05s) var(--cubic-ease) both;
+	animation: fadeUp var(--timer-05s) var(--ease) both;
 }
 
 main {
