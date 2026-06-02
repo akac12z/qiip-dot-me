@@ -25,7 +25,7 @@
 
 ## Features Planned (4 tools)
 
-1. **UTM Builder** (`/build-utms`) — form to build URLs with UTM params. Pure frontend.
+1. **UTM Builder** (`/utm`) — form to build URLs with UTM params. Pure frontend.
 2. **QR Generator** (`/qr`) — generate QR from URLs. Pure frontend.
 3. **URL Shortener** (`/shorten-urls`) — `qiip.me/{name}/{campaign}`. Needs backend/DB.
 4. **Character Counter** (`/word-count` or `/contador`) — paste text, get chars/words/reading time/spell check. Pure frontend.
