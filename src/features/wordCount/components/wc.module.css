@@ -1,29 +1,251 @@
-.wrap {
-	max-width: var(--screen-sm);
-	margin: 0 auto;
-	padding: var(--sp-6) 0 var(--sp-13);
+/* -- Textarea ----------------------------------------- */
 
-	& .eyebrow {
-		font-size: var(--page-eyebrow-fs);
-		font-weight: var(--page-eyebrow-fw);
-		letter-spacing: var(--page-eyebrow-ls);
-		line-height: var(--page-eyebrow-lh);
-		text-transform: var(--page-eyebrow-tt);
-		color: var(--accent);
+.textareaWrap {
+	position: relative;
+}
+
+.textarea {
+	width: 100%;
+	min-height: var(--sp-26);
+	background-color: var(--surface-1);
+	border: var(--sp-05) solid var(--border);
+	color: var(--fg);
+	font: var(--f-body-style);
+	line-height: 1.7;
+	padding: var(--sp-6);
+	border-radius: var(--r-xs);
+	outline: none;
+	resize: vertical;
+	transition:
+		border-color 0.2s var(--ease),
+		box-shadow 0.2s var(--ease),
+		background-color 0.2s var(--ease);
+
+	&:focus {
+		border-color: var(--accent);
+		box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent);
 	}
 
-	& .title {
-		font-size: var(--page-titles-fs);
-		font-weight: var(--page-titles-fw);
-		letter-spacing: var(--page-titles-ls);
-		line-height: var(--page-titles-lh);
-		margin: var(--sp-6) 0 var(--sp-3);
-	}
-
-	& .desc {
-		font-size: var(--page-desc-fs);
-		line-height: var(--page-desc-lh);
+	&::placeholder {
 		color: var(--fg-muted);
+		opacity: 0.5;
+		font-style: italic;
+	}
+}
+
+.iconBtn {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--sp-9);
+	height: var(--sp-9);
+	border-radius: var(--r-xs);
+	border: var(--sp-05) solid transparent;
+	background-color: transparent;
+	color: var(--fg-muted);
+	cursor: pointer;
+	transition:
+		color 0.15s var(--ease),
+		border-color 0.15s var(--ease),
+		background-color 0.15s var(--ease);
+
+	&[data-position="top-right"] {
+		top: var(--sp-3);
+		right: var(--sp-3);
+	}
+
+	&[data-position="bottom-right"] {
+		bottom: var(--sp-5);
+		right: var(--sp-3);
+	}
+
+	&:hover:not(:disabled) {
+		color: var(--fg);
+		border-color: var(--border-2);
+		background-color: var(--surface-2);
+	}
+
+	&[data-position="top-right"]:hover:not(:disabled) {
+		color: var(--error-color);
+		border-color: color-mix(in srgb, var(--error-color) 40%, transparent);
+		background-color: color-mix(in srgb, var(--error-color) 8%, transparent);
+	}
+
+	&[data-position="bottom-right"]:hover:not(:disabled) {
+		color: var(--success-color);
+		border-color: color-mix(in srgb, var(--success-color) 40%, transparent);
+		background-color: color-mix(in srgb, var(--success-color) 8%, transparent);
+	}
+
+	&:active:not(:disabled) {
+		scale: 0.9;
+	}
+
+	&:disabled {
+		opacity: 0.25;
+		cursor: not-allowed;
+	}
+}
+
+/* -- Toast -------------------------------------------- */
+
+.toast {
+	position: fixed;
+	bottom: var(--sp-8);
+	left: 50%;
+	transform: translateX(-50%) translateY(8px);
+	background-color: color-mix(in srgb, var(--success-color) 10%, transparent);
+	border: var(--sp-05) solid var(--success-color);
+	color: var(--success-color);
+	font-family: var(--ff-headings);
+	font-size: var(--t-mili);
+	padding: var(--sp-3) var(--sp-6);
+	border-radius: var(--r-xs);
+	opacity: 0;
+	transition:
+		opacity 0.25s var(--ease),
+		transform 0.25s var(--ease);
+	pointer-events: none;
+	z-index: 1;
+	white-space: nowrap;
+	box-shadow: var(--shadow-2);
+
+	&[data-show] {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0);
+	}
+}
+
+/* -- Tooltip ------------------------------------------ */
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	margin-bottom: var(--sp-2);
+
+	& .tooltipTrigger {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: var(--sp-5);
+		height: var(--sp-5);
+		border-radius: 50%;
+		border: var(--sp-05) solid var(--fg-muted);
+		font: var(--f-pico-style);
+		line-height: 0;
+		letter-spacing: 0;
+		text-transform: none;
+		vertical-align: super;
+
+		color: var(--fg-muted);
+		cursor: help;
+		opacity: 0.55;
+		transition:
+			opacity 0.15s var(--ease),
+			border-color 0.15s var(--ease),
+			color 0.15s var(--ease);
+		outline: none;
+		user-select: none;
+
+		&:focus,
+		&:hover {
+			opacity: 1;
+			border-color: var(--accent);
+			color: var(--accent);
+		}
+	}
+
+	& .tooltipContent {
+		position: absolute;
+		bottom: calc(100% + 0.5rem);
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: var(--surface-2);
+		border: var(--sp-05) solid var(--border);
+		border-radius: var(--r-xs);
+		padding: var(--sp-2) var(--sp-3);
+		width: var(--sp-23);
+		font: var(--f-mili-style);
+		text-transform: none;
+		letter-spacing: 0;
+		color: var(--fg);
+		white-space: normal;
+		z-index: 100;
+		pointer-events: none;
+		visibility: hidden;
+		opacity: 0;
+		transition:
+			opacity 0.15s var(--ease),
+			visibility 0.15s var(--ease);
+		box-shadow: 0 4px 12px color-mix(in srgb, var(--bg) 60%, transparent);
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+			border: var(--sp-2) solid transparent;
+			border-top-color: var(--border);
+		}
+	}
+
+	&:hover .tooltipContent,
+	& .tooltipTrigger:focus + .tooltipContent {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+/* -- Stats -------------------------------------------- */
+
+.statsWrap {
+	margin-top: var(--sp-6);
+	margin-bottom: var(--sp-13);
+	background-color: var(--surface-1);
+	border: var(--sp-05) solid var(--border);
+	border-radius: var(--r-xs);
+	padding: var(--sp-5) var(--sp-7);
+}
+
+.statRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--sp-4) 0;
+}
+
+.statLabel {
+	font: var(--f-body-style);
+	color: var(--fg-2);
+	display: flex;
+	align-items: center;
+	gap: var(--sp-2);
+}
+
+.statValue {
+	font-family: var(--ff-headings);
+	font-size: var(--t-body);
+	font-weight: 600;
+	color: var(--fg);
+}
+
+.divider {
+	height: var(--sp-05);
+	background-color: var(--border);
+	opacity: 0.5;
+}
+
+/* -- Responsive --------------------------------------- */
+
+@media (width <= 40rem) {
+	.statsWrap {
 		margin-bottom: var(--sp-9);
+		padding: var(--sp-6);
+	}
+
+	.textarea {
+		min-height: 12rem;
 	}
 }

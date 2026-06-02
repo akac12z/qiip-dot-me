@@ -1,8 +1,8 @@
 ---
 import Hero from "@/layout/hero/Hero.astro";
-import ComingSoon from "@/ui/coming-soon/ComingSoon.astro";
+import WordCounter from "./WordCounter.tsx";
 ---
 
 <Hero href="/word-count">
-	<ComingSoon />
+	<WordCounter client:only="react" />
 </Hero>
