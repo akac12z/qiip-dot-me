@@ -4,6 +4,7 @@ import styles from "./bm.module.css";
 interface Tool {
 	href: string;
 	toolName: string;
+	color: string;
 }
 
 interface Props {
@@ -18,6 +19,9 @@ export default function BurgerMenu({ tools, currentPath }: Props) {
 
 	const close = () => setIsOpen(false);
 
+	const activeTool = tools.find((tool) => tool.href === currentPath);
+	const dotColor = activeTool?.color ?? null;
+
 	return (
 		<>
 			<button
@@ -28,12 +32,15 @@ export default function BurgerMenu({ tools, currentPath }: Props) {
 				onClick={() => setIsOpen((prev) => !prev)}
 				onKeyDown={(e) => e.key === "Escape" && close()}
 			>
-				<span />
-				<span />
-				<span />
+				{dotColor && (
+					<span
+						className={styles.dot}
+						style={{ backgroundColor: dotColor }}
+					/>
+				)}
+				Tools
 			</button>
 
-			{/* Backdrop catches clicks outside the menu */}
 			{isOpen && (
 				<div
 					className={styles.backdrop}

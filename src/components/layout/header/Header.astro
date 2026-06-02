@@ -17,21 +17,6 @@ const allTools = TOOLS;
 			>qiip.me</a
 		>
 
-		<ul class={styles.links}>
-			{
-				allTools.map(({ href, toolName }) => (
-					<li>
-						<a
-							href={href}
-							class={`${styles.link} ${path === href ? styles.active : ""}`}
-						>
-							{toolName}
-						</a>
-					</li>
-				))
-			}
-		</ul>
-
 		<div class={styles.right}>
 			<BurgerMenu
 				tools={allTools}

@@ -7,56 +7,43 @@
 .burger {
 	position: relative;
 	z-index: 3; /* above backdrop (1) and mobileMenu (2) */
-	display: none;
-	flex-direction: column;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: var(--sp-2);
-	width: var(--sp-9);
-	height: var(--sp-9);
+	padding: var(--sp-2) var(--sp-5);
 	background-color: var(--glass-bg);
 	backdrop-filter: blur(8px);
 	-webkit-backdrop-filter: blur(8px);
-	border: none;
+	border: var(--sp-05) solid var(--glass-border);
 	box-shadow: var(--shadow-sm);
 	cursor: pointer;
-	padding: 0;
-	border-radius: 50%;
+	border-radius: var(--sp-5);
 	color: var(--fg);
+	font: var(--f-mili-style);
+	font-family: var(--ff-headings);
+	transition:
+		box-shadow 0.2s var(--ease),
+		border-color 0.2s var(--ease);
 
 	&:hover {
 		box-shadow: var(--shadow-md);
+		border-color: var(--border-2);
 	}
 
 	&:active {
-		transform: scale(0.9);
-	}
-
-	& span {
-		display: block;
-		width: var(--sp-6);
-		height: var(--sp-1);
-		background-color: var(--fg-2);
-		border-radius: 2px;
-		transition:
-			transform 0.3s var(--ease),
-			opacity 0.2s var(--ease);
-	}
-
-	&[aria-expanded="true"] span:nth-child(1) {
-		transform: translateY(5.5px) rotate(45deg);
-	}
-	&[aria-expanded="true"] span:nth-child(2) {
-		opacity: 0;
-	}
-
-	&[aria-expanded="true"] span:nth-child(3) {
-		transform: translateY(-5.5px) rotate(-45deg);
+		transform: scale(0.96);
 	}
 }
 
+.dot {
+	width: var(--sp-2);
+	height: var(--sp-2);
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
 .mobileMenu {
-	/* <nav> has no position, so this is relative to <header> (position:sticky) */
 	position: absolute;
 	top: 100%;
 	left: 5%;
@@ -145,11 +132,5 @@
 	}
 	100% {
 		box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent);
-	}
-}
-
-@media (width <= 48rem) {
-	.burger {
-		display: flex;
 	}
 }
