@@ -23,6 +23,7 @@
 	& .desc {
 		font-size: var(--page-desc-fs);
 		line-height: var(--page-desc-lh);
+		font-family: var(--ff-mono);
 		color: var(--fg-muted);
 		margin-bottom: var(--sp-9);
 	}
