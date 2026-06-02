@@ -1,3 +1,11 @@
+/* space-mono - regular */
+@font-face {
+	font-display: swap;
+	font-family: "Space Mono";
+	font-style: normal;
+	font-weight: 400;
+	src: url("/src/assets/fonts/SpaceMono-Regular.woff") format("woff");
+}
 /* inter-regular - latin */
 @font-face {
 	font-display: swap;
