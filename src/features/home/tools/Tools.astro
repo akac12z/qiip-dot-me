@@ -1,29 +1,39 @@
 ---
 import styles from "./tools.module.css";
 import { TOOLS } from "./tools.ts";
-
-const tools = TOOLS;
 ---
 
-<section class={styles.tools}>
+<section class={styles.grid}>
 	{
-		tools.map((tool) => {
+		TOOLS.map((tool) => {
 			const { toolName, desc, href, number, onAir } = tool;
+			const index = number.toString().padStart(2, "0");
+
 			return (
 				<a
 					href={href}
-					class={`${styles.row} au`}
+					class={styles.card}
 					style={`animation-delay:${number * 0.15}s`}
 				>
-					<div class={styles.rowContent}>
-						<span class={styles.rowName}>
-							{toolName}
-							{!onAir && <span class={styles.soonTag}>Soon</span>}
-						</span>
-						<span class={styles.rowDesc}>{desc}</span>
-					</div>
-					<span class={styles.rowNum}>
-						{number.toString().padStart(2, "0")}
+					<span
+						class={styles.cardNum}
+						aria-hidden="true"
+					>
+						{index}
+					</span>
+
+					<section>
+						<div class={styles.cardTop}>
+							<p class={styles.name}>
+								<span class={styles.dot} />
+								{toolName}
+								{!onAir && <span class={styles.soonTag}>Soon</span>}
+							</p>
+						</div>
+						<p class={styles.desc}>{desc}</p>
+					</section>
+					<span class={styles.cta}>
+						Open tool <span aria-hidden="true">→</span>
 					</span>
 				</a>
 			);
