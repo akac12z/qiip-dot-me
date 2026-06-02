@@ -122,8 +122,9 @@
 /* ─── Nombre ──────────────────────────────────────────────────────── */
 
 .name {
-	font: var(--f-h5h6-style);
-	font-family: var(--ff-mono);
+	font: var(--f-body-style);
+	font-family: var(--ff-heading);
+	font-weight: bold;
 	color: var(--fg);
 	margin: 0;
 	display: flex;
@@ -154,7 +155,7 @@
 /* ─── Descripción ─────────────────────────────────────────────────── */
 
 .desc {
-	font: var(--f-body-style);
+	font: var(--f-mili-style);
 	font-family: var(--ff-mono);
 	color: var(--fg-2);
 	position: relative;
