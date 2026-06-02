@@ -66,7 +66,13 @@ export default function BurgerMenu({ tools, currentPath }: Props) {
 										onClick={close}
 									>
 										{toolName}
-										{isActive && <span className={styles.mobileDot} />}
+
+										{isActive && dotColor && (
+											<span
+												className={styles.mobileDot}
+												style={{ backgroundColor: dotColor }}
+											/>
+										)}
 									</a>
 								</li>
 							);
