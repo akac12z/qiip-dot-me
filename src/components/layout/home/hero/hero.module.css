@@ -41,7 +41,7 @@
 
 	& .sub {
 		font: var(--f-body-style);
-		font-family: var(--ff-headings);
+		font-family: var(--ff-mono);
 		color: var(--fg-3);
 		max-width: var(--sp-28);
 
@@ -52,7 +52,7 @@
 
 	& .meta {
 		font: var(--f-mili-style);
-		font-family: var(--ff-headings);
+		font-family: var(--ff-mono);
 		color: var(--fg-muted);
 		border-left: var(--sp-1) solid var(--accent);
 		padding-left: var(--sp-4);
