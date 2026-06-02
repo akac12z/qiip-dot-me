@@ -128,7 +128,7 @@
 	/* fonts */
 	--ff-headings: "Sono", sans-serif;
 	--ff-body: "Inter", sans-serif;
-	--ff-mono: monospace;
+	--ff-mono: "Space Mono", monospace;
 
 	/* timer */
 	--timer-05s: 0.5s;
