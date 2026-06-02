@@ -3,7 +3,7 @@
  * The letters who i'll choose to name the tools will always be the initials
  * of the words or the word itself if it has three letters or fewer.
  */
-interface ToolTag {
+export interface ToolTag {
 	toolTag: "utm" | "qr" | "wc" | "su";
 }
 
