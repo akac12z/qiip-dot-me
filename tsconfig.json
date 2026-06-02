@@ -10,10 +10,10 @@
 			"@/layout/*": ["./src/components/layout/*"],
 			"@/seo/*": ["./src/components/seo/*"],
 			"@/home/*": ["./src/features/home/*"],
-			"@/utmBuilder/*": ["./src/features/utms/*"],
-			"@/qrGenerator/*": ["./src/features/qr/*"],
-			"@/wordCounter/*": ["./src/features/wordCounter/*"],
-			"@/shortenUrls/*": ["./src/features/shortenUrls/*"]
+			"@/utms/*": ["./src/features/utms/*"],
+			"@/qr/*": ["./src/features/qr/*"],
+			"@/wordCounter/*": ["./src/features/wordCount/*"],
+			"@/shortenUrls/*": ["./src/features/urlShortener/*"]
 		},
 		"jsx": "react-jsx",
 		"jsxImportSource": "react"
