@@ -1,8 +1,8 @@
 ---
-import Hero from "@/layout/hero/Hero.astro";
+import HeroTool from "@/layout/toolsPage/HeroTool.astro";
 import WordCounter from "./WordCounter.tsx";
 ---
 
-<Hero href="/word-count">
+<HeroTool href="/word-count">
 	<WordCounter client:only="react" />
-</Hero>
+</HeroTool>
