@@ -15,16 +15,20 @@
 
 /* ─── Colors for tools ─────────────────────────────────────────── */
 
-.card:nth-child(1) {
+.utm {
+	/* UTM Builder */
 	--card-accent: var(--tool-utm);
 }
-.card:nth-child(2) {
+.qr {
+	/* QR Generator */
 	--card-accent: var(--tool-qr);
 }
-.card:nth-child(3) {
+.wc {
+	/* Word Counter */
 	--card-accent: var(--tool-wc);
 }
-.card:nth-child(4) {
+.su {
+	/* URL Shortener */
 	--card-accent: var(--tool-us);
 }
 
@@ -88,7 +92,7 @@
 	font: var(--f-h1-style);
 	font-size: var(--sp-16);
 	line-height: 1;
-	letter-spacing: -0.08em;
+	letter-spacing: -0.1em;
 	color: var(--border);
 	pointer-events: none;
 	user-select: none;
@@ -98,9 +102,12 @@
 }
 
 .card:hover .cardNum {
-	color: var(--card-accent, var(--accent));
-	transform: scale(1.08) translateY(-6px);
-	opacity: 0.2;
+	color: color-mix(
+		in oklch,
+		var(--card-accent, var(--accent)) 20%,
+		transparent
+	);
+	transform: scale(1.1) translateY(-6px);
 }
 
 /* ─── Cabecera ────────────────────────────────────────────────────── */
@@ -135,28 +142,13 @@
 	margin-right: var(--sp-3);
 	position: relative;
 	top: -0.5px;
-	opacity: 0.8;
+	opacity: 0.5;
 	transition: opacity 0.3s var(--ease);
 }
 
 .card:hover .dot {
 	animation: pulse 1.6s ease-out infinite;
 	opacity: 1;
-}
-
-@keyframes pulse {
-	0% {
-		box-shadow: 0 0 0 0
-			color-mix(in oklch, var(--card-accent, var(--accent)) 55%, transparent);
-	}
-	70% {
-		box-shadow: 0 0 0 6px
-			color-mix(in oklch, var(--card-accent, var(--accent)) 0%, transparent);
-	}
-	100% {
-		box-shadow: 0 0 0 0
-			color-mix(in oklch, var(--card-accent, var(--accent)) 0%, transparent);
-	}
 }
 
 /* ─── Descripción ─────────────────────────────────────────────────── */
@@ -197,4 +189,19 @@
 	padding: var(--sp-2) var(--sp-3);
 	border-radius: var(--r-xs);
 	margin-left: var(--sp-4);
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0
+			color-mix(in oklch, var(--card-accent, var(--accent)) 55%, transparent);
+	}
+	70% {
+		box-shadow: 0 0 0 6px
+			color-mix(in oklch, var(--card-accent, var(--accent)) 0%, transparent);
+	}
+	100% {
+		box-shadow: 0 0 0 0
+			color-mix(in oklch, var(--card-accent, var(--accent)) 0%, transparent);
+	}
 }

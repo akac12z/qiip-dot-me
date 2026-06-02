@@ -1,3 +1,12 @@
+/**
+ * This tooltag is for customs tool colors.
+ * The letters who i'll choose to name the tools will always be the initials
+ * of the words or the word itself if it has three letters or fewer.
+ */
+interface ToolTag {
+	toolTag: "utm" | "qr" | "wc" | "su";
+}
+
 interface Tool {
 	toolName: string;
 	titlePage: string;
@@ -5,6 +14,7 @@ interface Tool {
 	href: string;
 	onAir: boolean;
 	number: number;
+	tag: ToolTag;
 }
 
 export const TOOLS: Tool[] = [
@@ -15,6 +25,7 @@ export const TOOLS: Tool[] = [
 		href: "/utm",
 		onAir: true,
 		number: 1,
+		tag: { toolTag: "utm" },
 	},
 	{
 		toolName: "QR Generator",
@@ -23,6 +34,7 @@ export const TOOLS: Tool[] = [
 		href: "/qr",
 		onAir: true,
 		number: 2,
+		tag: { toolTag: "qr" },
 	},
 	{
 		toolName: "Word Counter",
@@ -31,6 +43,7 @@ export const TOOLS: Tool[] = [
 		href: "/word-count",
 		onAir: true,
 		number: 3,
+		tag: { toolTag: "wc" },
 	},
 	{
 		toolName: "URL Shortener",
@@ -39,5 +52,6 @@ export const TOOLS: Tool[] = [
 		href: "/shorten-urls",
 		onAir: false,
 		number: 4,
+		tag: { toolTag: "su" },
 	},
 ];
