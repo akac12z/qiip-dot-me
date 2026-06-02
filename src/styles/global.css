@@ -90,6 +90,13 @@
 :root {
 	--accent: rgb(62, 165, 234);
 	--accent-active: rgb(152, 202, 235);
+
+	/* Tools colors */
+	--tool-utm: #2d96d2;
+	--tool-qr: #1d9e75;
+	--tool-wc: #d83030;
+	--tool-us: #7f77dd;
+
 	/* Backgrounds - smooth backs */
 	--bg: #0d0d0d; /* only background */
 	--surface-1: #1a1a1a; /* to differentiate large areas of the UI */
