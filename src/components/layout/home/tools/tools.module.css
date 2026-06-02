@@ -13,25 +13,6 @@
 	}
 }
 
-/* ─── Colors for tools ─────────────────────────────────────────── */
-
-.utm {
-	/* UTM Builder */
-	--card-accent: var(--tool-utm);
-}
-.qr {
-	/* QR Generator */
-	--card-accent: var(--tool-qr);
-}
-.wc {
-	/* Word Counter */
-	--card-accent: var(--tool-wc);
-}
-.su {
-	/* URL Shortener */
-	--card-accent: var(--tool-us);
-}
-
 /* ─── Card base ───────────────────────────────────────────────────── */
 
 .card {
