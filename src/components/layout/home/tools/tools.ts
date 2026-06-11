@@ -1,9 +1,23 @@
 /**
- * This tooltag is for customs tool colors.
- * The letters who i'll choose to name the tools will always be the initials
- * of the words or the word itself (the path) if it has three letters or fewer.
- * For example: if the title page is URL Shortener but the path is /shorten-url,
- * the tool name must be "su".
+ * HOW TO ADD A NEW TOOL
+ * ─────────────────────
+ * 1. Pick a tag: initials of the tool name, or the path slug if it's ≤3 chars.
+ *    e.g. "URL Shortener" → path /shorten-urls → tag "su"
+ *
+ * 2. Add the color token in src/styles/global.css:
+ *    --tool-{tool_tag_name}: #yourcolor;
+ *
+ * 3. Add the entry to the TOOLS array below.
+ *
+ * That's it. The header menu, cards, and pulse animation pick it up automatically.
+ *
+ * ─────────────────────
+ * HOW THE COLOR SYSTEM WORKS
+ * ─────────────────────
+ * Each tool has a `color` field set to a CSS variable reference ("var(--tool-utm)").
+ * Components pass this value as both `backgroundColor` and `--card-accent` via inline
+ * styles (`as React.CSSProperties`). The `--card-accent` variable is what the pulse
+ * animation in tm.module.css reads to glow with the tool's own color.
  */
 export interface ToolTag {
 	toolTag: "utm" | "qr" | "wc" | "su";
