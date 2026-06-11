@@ -1,9 +1,10 @@
 ---
 import styles from "./header.module.css";
-import BurgerMenu from "./bm/BurgerMenu.tsx";
+import ToolsMenu from "./tm/ToolsMenu.tsx";
 
 import { ToggleTheme } from "@/ui/darkmode/ToggleTheme.tsx";
 import { TOOLS } from "../home/tools/tools.ts";
+import GitHub from "@/icons/GitHub.astro";
 
 const path = Astro.url.pathname;
 const allTools = TOOLS;
@@ -18,11 +19,20 @@ const allTools = TOOLS;
 		>
 
 		<div class={styles.right}>
-			<BurgerMenu
+			<ToolsMenu
 				tools={allTools}
 				currentPath={path}
 				client:only="react"
 			/>
+			<a
+				href="https://github.com/mrjark/qiip.me"
+				target="_blank"
+				rel="noopener noreferrer"
+				class={styles.githubLink}
+				aria-label="Ver proyecto qiip.me en GitHub"
+			>
+				<GitHub />
+			</a>
 			<ToggleTheme client:only="react" />
 		</div>
 	</nav>

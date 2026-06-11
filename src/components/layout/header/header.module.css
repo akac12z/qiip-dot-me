@@ -29,5 +29,12 @@
 		flex-shrink: 0;
 	}
 
-
+	& .githubLink {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: var(--t-h3);
+		color: var(--fg);
+		transition: opacity 0.2s var(--ease);
+	}
 }
