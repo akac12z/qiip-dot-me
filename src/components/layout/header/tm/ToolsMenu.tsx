@@ -1,5 +1,5 @@
-import { useState } from "react";
-import styles from "./bm.module.css";
+import React, { useState } from "react";
+import styles from "./tm.module.css";
 
 interface Tool {
 	href: string;
@@ -35,7 +35,7 @@ export default function BurgerMenu({ tools, currentPath }: Props) {
 				{dotColor && (
 					<span
 						className={styles.dot}
-						style={{ backgroundColor: dotColor }}
+						style={{ backgroundColor: dotColor, '--card-accent': dotColor } as React.CSSProperties}
 					/>
 				)}
 				Tools
@@ -70,7 +70,7 @@ export default function BurgerMenu({ tools, currentPath }: Props) {
 										{isActive && dotColor && (
 											<span
 												className={styles.mobileDot}
-												style={{ backgroundColor: dotColor }}
+												style={{ backgroundColor: dotColor, '--card-accent': dotColor } as React.CSSProperties}
 											/>
 										)}
 									</a>
