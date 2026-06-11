@@ -58,7 +58,7 @@ export const TOOLS: Tool[] = [
 	{
 		toolName: "Word Counter",
 		titlePage: "Count your words",
-		desc: "Words, characters, reading time — instantly.",
+		desc: "Words, characters, reading time & tokens count — instantly.",
 		href: "/word-count",
 		onAir: true,
 		number: 3,
