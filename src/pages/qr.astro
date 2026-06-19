@@ -1,8 +1,18 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import MainQR from "@/features/qr/components/MainQR.astro";
+import PagesSEO from "@/seo/PagesSEO.astro";
+
+import { TOOLS } from "@/global/site-info.ts";
+
+const QR = TOOLS.qr;
 ---
 
 <Layout>
+	<PagesSEO
+		slot="head"
+		pageTitle={QR.title}
+		pageDescription={QR.description}
+	/>
 	<MainQR />
 </Layout>
