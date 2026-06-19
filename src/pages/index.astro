@@ -1,8 +1,16 @@
 ---
+import { SITE_INFO } from "@/global/site-info.ts";
+
 import Layout from "@/layouts/Layout.astro";
 import Home from "@/components/layout/home/Home.astro";
+import PagesSEO from "@/seo/PagesSEO.astro";
 ---
 
 <Layout>
+	<PagesSEO
+		slot="head"
+		pageTitle={SITE_INFO.title}
+		pageDescription={SITE_INFO.description}
+	/>
 	<Home />
 </Layout>
