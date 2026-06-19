@@ -1,8 +1,18 @@
 ---
 import MainUTM from "@/features/utms/components/MainUTM.astro";
 import Layout from "@/layouts/Layout.astro";
+import PagesSEO from "@/seo/PagesSEO.astro";
+
+import { TOOLS } from "@/global/site-info.ts";
+
+const UTMS = TOOLS.utms;
 ---
 
 <Layout>
+	<PagesSEO
+		slot="head"
+		pageTitle={UTMS.title}
+		pageDescription={UTMS.description}
+	/>
 	<MainUTM />
 </Layout>
