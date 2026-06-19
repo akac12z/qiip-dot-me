@@ -30,11 +30,28 @@
 	}
 
 	& .githubLink {
+		width: var(--sp-9);
+		height: var(--sp-9);
+		border-radius: 50%;
+		background: var(--glass-bg);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		border: none;
+		box-shadow: var(--shadow-sm);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: var(--t-h3);
+		cursor: pointer;
 		color: var(--fg);
-		transition: opacity 0.2s var(--ease);
+		text-decoration: none;
+		font-size: var(--sp-6);
+
+		&:hover {
+			box-shadow: var(--shadow-2);
+		}
+
+		&:active {
+			transform: scale(0.9);
+		}
 	}
 }
