@@ -1,8 +1,17 @@
 ---
+import PagesSEO from "@/seo/PagesSEO.astro";
 import MainSort from "@/features/urlShortener/components/MainSort.astro";
 import Layout from "@/layouts/Layout.astro";
+
+import { TOOLS } from "@/global/site-info.ts";
+const SHORTEN = TOOLS.url_shortener;
 ---
 
 <Layout>
+	<PagesSEO
+		slot="head"
+		pageTitle={SHORTEN.title}
+		pageDescription={SHORTEN.description}
+	/>
 	<MainSort />
 </Layout>
