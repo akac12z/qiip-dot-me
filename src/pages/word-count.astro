@@ -1,8 +1,18 @@
 ---
-import MainWC from "@/features/wordCount/components/MainWC.astro";
 import Layout from "@/layouts/Layout.astro";
+import MainWC from "@/features/wordCount/components/MainWC.astro";
+import PagesSEO from "@/seo/PagesSEO.astro";
+
+import { TOOLS } from "@/global/site-info.ts";
+
+const COUNTER = TOOLS.word_counter;
 ---
 
 <Layout>
+	<PagesSEO
+		slot="head"
+		pageTitle={COUNTER.title}
+		pageDescription={COUNTER.description}
+	/>
 	<MainWC />
 </Layout>
