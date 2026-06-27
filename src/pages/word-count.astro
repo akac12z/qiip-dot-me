@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import MainWC from "@/features/wordCount/components/MainWC.astro";
 import PagesSEO from "@/seo/PagesSEO.astro";
 import JsonLdTool from "@/seo/JsonLdTool.astro";
+import JsonLdFAQ from "@/seo/JsonLdFAQ.astro";
 
 import { TOOLS } from "@/global/site-info.ts";
 
@@ -25,5 +26,6 @@ const COUNTER = TOOLS.wc;
 		description={COUNTER.description}
 		url="/word-count"
 	/>
+	{COUNTER.faqs && <JsonLdFAQ slot="head" faqs={COUNTER.faqs} />}
 	<MainWC />
 </Layout>

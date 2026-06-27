@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import MainQR from "@/features/qr/components/MainQR.astro";
 import PagesSEO from "@/seo/PagesSEO.astro";
 import JsonLdTool from "@/seo/JsonLdTool.astro";
+import JsonLdFAQ from "@/seo/JsonLdFAQ.astro";
 
 import { TOOLS } from "@/global/site-info.ts";
 
@@ -25,5 +26,6 @@ const QR = TOOLS.qr;
 		description={QR.description}
 		url="/qr"
 	/>
+	{QR.faqs && <JsonLdFAQ slot="head" faqs={QR.faqs} />}
 	<MainQR />
 </Layout>
