@@ -12,6 +12,14 @@
 			color: var(--fg-2);
 			letter-spacing: 0.01em;
 			margin-bottom: var(--sp-2);
+
+			& .keep {
+				text-decoration: underline;
+				text-decoration-style: double;
+				text-decoration-color: var(--accent);
+				text-underline-offset: 2px;
+				text-decoration-thickness: 2px;
+			}
 		}
 
 		& .claim {
