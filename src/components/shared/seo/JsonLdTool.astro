@@ -1,0 +1,32 @@
+---
+import { SITE_INFO } from "@/global/site-info.ts";
+
+interface Props {
+	name: string;
+	description: string;
+	url: string;
+}
+
+const { name, description, url } = Astro.props;
+
+const schema = {
+	"@context": "https://schema.org",
+	"@type": "SoftwareApplication",
+	name,
+	description,
+	url: new URL(url, SITE_INFO.url).toString(),
+	applicationCategory: "WebApplication",
+	operatingSystem: "Web",
+	offers: {
+		"@type": "Offer",
+		price: "0",
+		priceCurrency: "EUR",
+	},
+};
+---
+
+<script
+	is:inline
+	type="application/ld+json"
+	set:html={JSON.stringify(schema)}
+/>

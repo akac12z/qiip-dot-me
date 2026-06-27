@@ -1,0 +1,21 @@
+---
+import { SITE_INFO } from "@/global/site-info.ts";
+
+const schema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	name: "qiip.me",
+	url: SITE_INFO.url,
+	description: SITE_INFO.description,
+	founder: {
+		"@type": "Person",
+		name: SITE_INFO.author,
+	},
+};
+---
+
+<script
+	is:inline
+	type="application/ld+json"
+	set:html={JSON.stringify(schema)}
+/>
