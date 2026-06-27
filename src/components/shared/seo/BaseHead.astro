@@ -3,10 +3,13 @@ import { ClientRouter } from "astro:transitions";
 
 import "../../../styles/global.css";
 import "../../../styles/typo.css";
+
+import Favicons from "./Favicons.astro";
 ---
 
 <head>
 	<ClientRouter />
+	<Favicons />
 
 	<script is:inline>
 		const getTheme = () =>
