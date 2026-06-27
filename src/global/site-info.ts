@@ -49,28 +49,28 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 		title: "Free QR Code Generator - qiip.me",
 		description:
 			"Generate QR codes instantly for any URL, text, or link. Free, fast, and customizable — no sign-up required. Keep your data under your domain.",
-		ogImage: "/public/og-tools/og-image-qr.webp",
+		ogImage: "/og-tools/og-image-qr.webp",
 		ogImageAlt: "",
 	},
 	utms: {
 		title: "UTM Builder - qiip.me",
 		description:
 			"Build UTM-tagged URLs in seconds. Track your campaigns across Google Analytics, social media, and more — all without leaving your own domain.",
-		ogImage: "/public/og-tools/og-image-utms.webp",
+		ogImage: "/og-tools/og-image-utms.webp",
 		ogImageAlt: "UTM Builder tool interface on qiip.me",
 	},
 	su: {
 		title: "URL Shortener - qiip.me",
 		description:
 			"Shorten any URL and share clean, memorable links. Track clicks and keep full control over your links — no third-party redirects, no data leaks.",
-		ogImage: "/public/og-tools/og-image-su.webp",
+		ogImage: "/og-tools/og-image-su.webp",
 		ogImageAlt: "URL Shortener tool interface on qiip.me",
 	},
 	wc: {
 		title: "Word Counter - qiip.me",
 		description:
 			"Count words, characters, sentences, and reading time in real time. A clean, distraction-free writing tool built for writers and content creators.",
-		ogImage: "/public/og-tools/og-image-wc.webp",
+		ogImage: "/og-tools/og-image-wc.webp",
 		ogImageAlt: "Word Counter tool interface on qiip.me",
 	},
 });
