@@ -9,6 +9,7 @@
 			"@/ui/*": ["./src/components/ui/*"],
 			"@/layout/*": ["./src/components/layout/*"],
 			"@/seo/*": ["./src/components/shared/seo/*"],
+			"@/aeo/*": ["./src/components/shared/aeo/*"],
 			"@/analytics/*": ["./src/components/shared/analytics/*"],
 			"@/home/*": ["./src/features/home/*"],
 			"@/utms/*": ["./src/features/utms/*"],
