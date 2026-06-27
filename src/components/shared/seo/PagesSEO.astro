@@ -10,10 +10,10 @@ interface Props {
 	ogImage?: string;
 	ogImageAlt?: string;
 	ogType?: "website" | "article";
-	// pageKeywords: PageKeywords;
+	keywords?: string[];
 }
 
-const { pageTitle, pageDescription, ogImage, ogImageAlt, ogType = "website" } = Astro.props;
+const { pageTitle, pageDescription, ogImage, ogImageAlt, ogType = "website", keywords } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -43,6 +43,12 @@ const ogImageUrlAlt = ogImageAlt || pageTitle;
 	rel="canonical"
 	href={canonicalURL}
 />
+{keywords && keywords.length > 0 && (
+	<meta
+		name="keywords"
+		content={keywords.join(", ")}
+	/>
+)}
 
 {/* Open Graph / Facebook / WhatsApp */}
 <meta
