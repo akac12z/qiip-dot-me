@@ -34,6 +34,7 @@ const TOOLS_INTERFACE = z.object({
 	description: z.string().min(110).max(150),
 	ogImage: z.string().optional(),
 	ogImageAlt: z.string().optional(),
+	keywords: z.array(z.string()).optional(),
 });
 
 export type TOOLS_INFO = z.infer<typeof TOOLS_INTERFACE>;
@@ -51,6 +52,14 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"Generate QR codes instantly for any URL, text, or link. Free, fast, and customizable — no sign-up required. Keep your data under your domain.",
 		ogImage: "/og-tools/og-image-qr.webp",
 		ogImageAlt: "",
+		keywords: [
+			"qr code generator",
+			"free qr code",
+			"create qr code online",
+			"free qr code generator no sign up",
+			"generate qr code for url",
+			"qr code maker online free",
+		],
 	},
 	utms: {
 		title: "UTM Builder - qiip.me",
@@ -58,6 +67,14 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"Build UTM-tagged URLs in seconds. Track your campaigns across Google Analytics, social media, and more — all without leaving your own domain.",
 		ogImage: "/og-tools/og-image-utms.webp",
 		ogImageAlt: "UTM Builder tool interface on qiip.me",
+		keywords: [
+			"utm builder",
+			"utm generator",
+			"utm link builder",
+			"utm parameter builder google analytics",
+			"build utm tracking url free",
+			"utm campaign url builder online",
+		],
 	},
 	su: {
 		title: "URL Shortener - qiip.me",
@@ -65,6 +82,14 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"Shorten any URL and share clean, memorable links. Track clicks and keep full control over your links — no third-party redirects, no data leaks.",
 		ogImage: "/og-tools/og-image-su.webp",
 		ogImageAlt: "URL Shortener tool interface on qiip.me",
+		keywords: [
+			"url shortener",
+			"link shortener",
+			"shorten url free",
+			"free url shortener no sign up",
+			"custom link shortener no redirect",
+			"shorten long url online free",
+		],
 	},
 	wc: {
 		title: "Word Counter - qiip.me",
@@ -72,5 +97,13 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"Count words, characters, sentences, and reading time in real time. A clean, distraction-free writing tool built for writers and content creators.",
 		ogImage: "/og-tools/og-image-wc.webp",
 		ogImageAlt: "Word Counter tool interface on qiip.me",
+		keywords: [
+			"word counter",
+			"character counter",
+			"reading time calculator",
+			"online word counter free",
+			"count words and characters online",
+			"word count reading time estimator",
+		],
 	},
 });
