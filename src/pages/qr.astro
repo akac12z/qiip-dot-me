@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import MainQR from "@/features/qr/components/MainQR.astro";
 import PagesSEO from "@/seo/PagesSEO.astro";
+import JsonLdTool from "@/seo/JsonLdTool.astro";
 
 import { TOOLS } from "@/global/site-info.ts";
 
@@ -16,6 +17,12 @@ const QR = TOOLS.qr;
 		ogType="article"
 		ogImage={QR.ogImage}
 		ogImageAlt={QR.ogImageAlt}
+	/>
+	<JsonLdTool
+		slot="head"
+		name="QR Code Generator"
+		description={QR.description}
+		url="/qr"
 	/>
 	<MainQR />
 </Layout>

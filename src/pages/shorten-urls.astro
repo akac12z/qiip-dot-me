@@ -1,5 +1,6 @@
 ---
 import PagesSEO from "@/seo/PagesSEO.astro";
+import JsonLdTool from "@/seo/JsonLdTool.astro";
 import MainSort from "@/features/urlShortener/components/MainSort.astro";
 import Layout from "@/layouts/Layout.astro";
 
@@ -15,6 +16,12 @@ const SHORTEN = TOOLS.su;
 		ogType="article"
 		ogImage={SHORTEN.ogImage}
 		ogImageAlt={SHORTEN.ogImageAlt}
+	/>
+	<JsonLdTool
+		slot="head"
+		name="URL Shortener"
+		description={SHORTEN.description}
+		url="/shorten-urls"
 	/>
 	<MainSort />
 </Layout>

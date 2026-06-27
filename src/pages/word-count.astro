@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import MainWC from "@/features/wordCount/components/MainWC.astro";
 import PagesSEO from "@/seo/PagesSEO.astro";
+import JsonLdTool from "@/seo/JsonLdTool.astro";
 
 import { TOOLS } from "@/global/site-info.ts";
 
@@ -16,6 +17,12 @@ const COUNTER = TOOLS.wc;
 		ogType="article"
 		ogImage={COUNTER.ogImage}
 		ogImageAlt={COUNTER.ogImageAlt}
+	/>
+	<JsonLdTool
+		slot="head"
+		name="Word Counter"
+		description={COUNTER.description}
+		url="/word-count"
 	/>
 	<MainWC />
 </Layout>

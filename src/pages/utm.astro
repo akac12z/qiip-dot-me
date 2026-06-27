@@ -2,6 +2,7 @@
 import MainUTM from "@/features/utms/components/MainUTM.astro";
 import Layout from "@/layouts/Layout.astro";
 import PagesSEO from "@/seo/PagesSEO.astro";
+import JsonLdTool from "@/seo/JsonLdTool.astro";
 
 import { TOOLS } from "@/global/site-info.ts";
 
@@ -16,6 +17,12 @@ const UTMS = TOOLS.utms;
 		ogType="article"
 		ogImage={UTMS.ogImage}
 		ogImageAlt={UTMS.ogImageAlt}
+	/>
+	<JsonLdTool
+		slot="head"
+		name="UTM Builder"
+		description={UTMS.description}
+		url="/utm"
 	/>
 	<MainUTM />
 </Layout>
