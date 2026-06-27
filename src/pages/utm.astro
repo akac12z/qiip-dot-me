@@ -3,7 +3,8 @@ import MainUTM from "@/features/utms/components/MainUTM.astro";
 import Layout from "@/layouts/Layout.astro";
 import PagesSEO from "@/seo/PagesSEO.astro";
 import JsonLdTool from "@/seo/JsonLdTool.astro";
-import JsonLdFAQ from "@/seo/JsonLdFAQ.astro";
+import JsonLdFAQ from "@/aeo/JsonLdFAQ.astro";
+import JsonLdHowTo from "@/aeo/JsonLdHowTo.astro";
 
 import { TOOLS } from "@/global/site-info.ts";
 
@@ -27,5 +28,6 @@ const UTMS = TOOLS.utms;
 		url="/utm"
 	/>
 	{UTMS.faqs && <JsonLdFAQ slot="head" faqs={UTMS.faqs} />}
+	{UTMS.howTo && <JsonLdHowTo slot="head" name="How to use the UTM Builder" description={UTMS.description} steps={UTMS.howTo} />}
 	<MainUTM />
 </Layout>

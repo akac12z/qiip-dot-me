@@ -1,7 +1,8 @@
 ---
 import PagesSEO from "@/seo/PagesSEO.astro";
 import JsonLdTool from "@/seo/JsonLdTool.astro";
-import JsonLdFAQ from "@/seo/JsonLdFAQ.astro";
+import JsonLdFAQ from "@/aeo/JsonLdFAQ.astro";
+import JsonLdHowTo from "@/aeo/JsonLdHowTo.astro";
 import MainSort from "@/features/urlShortener/components/MainSort.astro";
 import Layout from "@/layouts/Layout.astro";
 
@@ -26,5 +27,6 @@ const SHORTEN = TOOLS.su;
 		url="/shorten-urls"
 	/>
 	{SHORTEN.faqs && <JsonLdFAQ slot="head" faqs={SHORTEN.faqs} />}
+	{SHORTEN.howTo && <JsonLdHowTo slot="head" name="How to shorten a URL" description={SHORTEN.description} steps={SHORTEN.howTo} />}
 	<MainSort />
 </Layout>

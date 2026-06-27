@@ -3,7 +3,8 @@ import Layout from "@/layouts/Layout.astro";
 import MainWC from "@/features/wordCount/components/MainWC.astro";
 import PagesSEO from "@/seo/PagesSEO.astro";
 import JsonLdTool from "@/seo/JsonLdTool.astro";
-import JsonLdFAQ from "@/seo/JsonLdFAQ.astro";
+import JsonLdFAQ from "@/aeo/JsonLdFAQ.astro";
+import JsonLdHowTo from "@/aeo/JsonLdHowTo.astro";
 
 import { TOOLS } from "@/global/site-info.ts";
 
@@ -27,5 +28,6 @@ const COUNTER = TOOLS.wc;
 		url="/word-count"
 	/>
 	{COUNTER.faqs && <JsonLdFAQ slot="head" faqs={COUNTER.faqs} />}
+	{COUNTER.howTo && <JsonLdHowTo slot="head" name="How to use the Word Counter" description={COUNTER.description} steps={COUNTER.howTo} />}
 	<MainWC />
 </Layout>
