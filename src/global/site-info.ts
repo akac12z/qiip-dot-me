@@ -12,15 +12,10 @@ import { z } from "astro/zod";
 
 export interface SITE_INFO {
 	title: string;
-
 	description: string;
-
 	url: string;
-
 	author: string;
-
 	location: string;
-
 	lang: string;
 }
 
@@ -43,30 +38,39 @@ const TOOLS_INTERFACE = z.object({
 
 export type TOOLS_INFO = z.infer<typeof TOOLS_INTERFACE>;
 
+/**
+ * qr: qr generator
+ * utms: utm builder
+ * su: shorten urls
+ * wc: word counter
+ */
 export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 	qr: {
 		title: "Free QR Code Generator - qiip.me",
 		description:
 			"Generate QR codes instantly for any URL, text, or link. Free, fast, and customizable — no sign-up required. Keep your data under your domain.",
+		ogImage: "/public/og-tools/og-image-qr.webp",
+		ogImageAlt: "",
 	},
 	utms: {
 		title: "UTM Builder - qiip.me",
 		description:
 			"Build UTM-tagged URLs in seconds. Track your campaigns across Google Analytics, social media, and more — all without leaving your own domain.",
+		ogImage: "/public/og-tools/og-image-utms.webp",
+		ogImageAlt: "UTM Builder tool interface on qiip.me",
 	},
-	url_shortener: {
+	su: {
 		title: "URL Shortener - qiip.me",
 		description:
 			"Shorten any URL and share clean, memorable links. Track clicks and keep full control over your links — no third-party redirects, no data leaks.",
+		ogImage: "/public/og-tools/og-image-su.webp",
+		ogImageAlt: "URL Shortener tool interface on qiip.me",
 	},
-	word_counter: {
+	wc: {
 		title: "Word Counter - qiip.me",
 		description:
 			"Count words, characters, sentences, and reading time in real time. A clean, distraction-free writing tool built for writers and content creators.",
-	},
-	md_coverter: {
-		title: "PDF to Markdown converter - qiip.me",
-		description:
-			"Convert PDFs into clean Markdown. Perfect for developers and writers who need a quick, reliable preview and easy export to paste into LLMs.",
+		ogImage: "/public/og-tools/og-image-wc.webp",
+		ogImageAlt: "Word Counter tool interface on qiip.me",
 	},
 });
