@@ -29,12 +29,18 @@ export const SITE_INFO: SITE_INFO = {
 	lang: "es",
 };
 
+const FAQ_INTERFACE = z.object({
+	question: z.string(),
+	answer: z.string(),
+});
+
 const TOOLS_INTERFACE = z.object({
 	title: z.string().max(50),
 	description: z.string().min(110).max(150),
 	ogImage: z.string().optional(),
 	ogImageAlt: z.string().optional(),
 	keywords: z.array(z.string()).optional(),
+	faqs: z.array(FAQ_INTERFACE).optional(),
 });
 
 export type TOOLS_INFO = z.infer<typeof TOOLS_INTERFACE>;
@@ -60,6 +66,24 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"generate qr code for url",
 			"qr code maker online free",
 		],
+		faqs: [
+			{
+				question: "Is this QR code generator free?",
+				answer: "Yes, completely free with no sign-up or account required.",
+			},
+			{
+				question: "What can I encode in a QR code?",
+				answer: "Any URL, plain text, email address, or phone number.",
+			},
+			{
+				question: "Do the QR codes expire?",
+				answer: "No. QR codes generated here are static images that never expire.",
+			},
+			{
+				question: "What format are QR codes downloaded in?",
+				answer: "PNG format, ready to use in any design or print project.",
+			},
+		],
 	},
 	utms: {
 		title: "UTM Builder - qiip.me",
@@ -74,6 +98,24 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"utm parameter builder google analytics",
 			"build utm tracking url free",
 			"utm campaign url builder online",
+		],
+		faqs: [
+			{
+				question: "What is a UTM builder?",
+				answer: "A UTM builder creates URLs with UTM parameters (source, medium, campaign, term, content) so you can track where your traffic comes from in Google Analytics.",
+			},
+			{
+				question: "Are UTM parameters free to use?",
+				answer: "Yes, UTM parameters are a free Google Analytics feature available to anyone with a website.",
+			},
+			{
+				question: "Does the UTM builder store my data?",
+				answer: "No. All processing happens in your browser — no data is sent to any server.",
+			},
+			{
+				question: "What UTM parameters can I add?",
+				answer: "You can add utm_source, utm_medium, utm_campaign, utm_term, and utm_content.",
+			},
 		],
 	},
 	su: {
@@ -90,6 +132,24 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"custom link shortener no redirect",
 			"shorten long url online free",
 		],
+		faqs: [
+			{
+				question: "Is this URL shortener free?",
+				answer: "Yes, completely free with no account or registration required.",
+			},
+			{
+				question: "Do shortened URLs expire?",
+				answer: "No, shortened links created here are permanent.",
+			},
+			{
+				question: "Are my shortened links private?",
+				answer: "Yes. No third-party services are involved — your links stay under your own domain with no data leaks.",
+			},
+			{
+				question: "Can I track clicks on shortened URLs?",
+				answer: "Yes, click tracking is included with every shortened link.",
+			},
+		],
 	},
 	wc: {
 		title: "Word Counter - qiip.me",
@@ -104,6 +164,24 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"online word counter free",
 			"count words and characters online",
 			"word count reading time estimator",
+		],
+		faqs: [
+			{
+				question: "How does the word counter work?",
+				answer: "Paste or type your text and it instantly counts words, characters, sentences, and estimates reading time.",
+			},
+			{
+				question: "Is my text saved or sent anywhere?",
+				answer: "No. All counting happens in your browser — your text never leaves your device.",
+			},
+			{
+				question: "How is reading time calculated?",
+				answer: "Based on an average reading speed of 200 words per minute.",
+			},
+			{
+				question: "Does it count characters with and without spaces?",
+				answer: "Yes, both counts are shown separately.",
+			},
 		],
 	},
 });
