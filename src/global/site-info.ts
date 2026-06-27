@@ -34,6 +34,11 @@ const FAQ_INTERFACE = z.object({
 	answer: z.string(),
 });
 
+const HOWTO_STEP_INTERFACE = z.object({
+	name: z.string(),
+	text: z.string(),
+});
+
 const TOOLS_INTERFACE = z.object({
 	title: z.string().max(50),
 	description: z.string().min(110).max(150),
@@ -41,6 +46,7 @@ const TOOLS_INTERFACE = z.object({
 	ogImageAlt: z.string().optional(),
 	keywords: z.array(z.string()).optional(),
 	faqs: z.array(FAQ_INTERFACE).optional(),
+	howTo: z.array(HOWTO_STEP_INTERFACE).optional(),
 });
 
 export type TOOLS_INFO = z.infer<typeof TOOLS_INTERFACE>;
@@ -65,6 +71,11 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"free qr code generator no sign up",
 			"generate qr code for url",
 			"qr code maker online free",
+		],
+		howTo: [
+			{ name: "Enter your content", text: "Enter the URL or text you want to encode into the QR code." },
+			{ name: "Generate instantly", text: "The QR code is generated instantly in real time as you type." },
+			{ name: "Download", text: "Download the QR code as a PNG file, ready for print or digital use." },
 		],
 		faqs: [
 			{
@@ -99,6 +110,14 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"build utm tracking url free",
 			"utm campaign url builder online",
 		],
+		howTo: [
+			{ name: "Enter the destination URL", text: "Paste the URL you want to track into the URL field." },
+			{ name: "Fill in UTM Source", text: "Enter the traffic source, such as google, newsletter, or twitter." },
+			{ name: "Fill in UTM Medium", text: "Enter the marketing medium, such as cpc, email, or social." },
+			{ name: "Enter a Campaign Name", text: "Add a campaign name to identify this specific campaign." },
+			{ name: "Add optional parameters", text: "Optionally fill in UTM Term and UTM Content for extra tracking granularity." },
+			{ name: "Copy the UTM URL", text: "Copy the generated UTM URL and use it in your campaign." },
+		],
 		faqs: [
 			{
 				question: "What is a UTM builder?",
@@ -132,6 +151,12 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"custom link shortener no redirect",
 			"shorten long url online free",
 		],
+		howTo: [
+			{ name: "Paste your URL", text: "Paste the long URL you want to shorten into the input field." },
+			{ name: "Shorten the link", text: "Click the shorten button to generate a short link instantly." },
+			{ name: "Copy and share", text: "Copy the shortened URL and share it anywhere." },
+			{ name: "Track clicks", text: "Monitor click analytics from your dashboard." },
+		],
 		faqs: [
 			{
 				question: "Is this URL shortener free?",
@@ -164,6 +189,10 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"online word counter free",
 			"count words and characters online",
 			"word count reading time estimator",
+		],
+		howTo: [
+			{ name: "Paste or type your text", text: "Paste or type your text into the input area." },
+			{ name: "Read your stats", text: "Your word count, character count, sentence count, and estimated reading time update in real time." },
 		],
 		faqs: [
 			{
