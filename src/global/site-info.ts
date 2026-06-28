@@ -20,7 +20,7 @@ export interface SITE_INFO {
 }
 
 export const SITE_INFO: SITE_INFO = {
-	title: "qiip.me - open source attribution tool",
+	title: "qiip.me — Free UTM Builder, QR Generator & URL Tools",
 	description:
 		"Share your content, track what works, and keep everything under your own domain.",
 	url: "https://qiip.me",
@@ -40,7 +40,7 @@ const HOWTO_STEP_INTERFACE = z.object({
 });
 
 const TOOLS_INTERFACE = z.object({
-	title: z.string().max(50),
+	title: z.string().max(65),
 	description: z.string().min(110).max(150),
 	ogImage: z.string().optional(),
 	ogImageAlt: z.string().optional(),
@@ -59,7 +59,7 @@ export type TOOLS_INFO = z.infer<typeof TOOLS_INTERFACE>;
  */
 export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 	qr: {
-		title: "Free QR Code Generator - qiip.me",
+		title: "Free QR Code Generator — No Sign-Up Required | qiip.me",
 		description:
 			"Generate QR codes instantly for any URL, text, or link. Free, fast, and customizable — no sign-up required. Keep your data under your domain.",
 		ogImage: "/og-tools/og-image-qr.webp",
@@ -97,7 +97,7 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 		],
 	},
 	utms: {
-		title: "UTM Builder - qiip.me",
+		title: "Free UTM Builder — Create Campaign Tracking Links | qiip.me",
 		description:
 			"Build UTM-tagged URLs in seconds. Track your campaigns across Google Analytics, social media, and more — all without leaving your own domain.",
 		ogImage: "/og-tools/og-image-utms.webp",
@@ -138,7 +138,7 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 		],
 	},
 	su: {
-		title: "URL Shortener - qiip.me",
+		title: "Free URL Shortener — Clean, Private Short Links | qiip.me",
 		description:
 			"Shorten any URL and share clean, memorable links. Track clicks and keep full control over your links — no third-party redirects, no data leaks.",
 		ogImage: "/og-tools/og-image-su.webp",
@@ -177,7 +177,7 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 		],
 	},
 	wc: {
-		title: "Word Counter - qiip.me",
+		title: "Free Word Counter — Words, Characters & Reading Time | qiip.me",
 		description:
 			"Count words, characters, sentences, and reading time in real time. A clean, distraction-free writing tool built for writers and content creators.",
 		ogImage: "/og-tools/og-image-wc.webp",
