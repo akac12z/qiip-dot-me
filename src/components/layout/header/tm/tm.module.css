@@ -50,12 +50,12 @@
 	width: 90%;
 	z-index: 2;
 	margin-top: var(--sp-3);
-	background-color: var(--glass-bg);
-	backdrop-filter: blur(12px);
-	-webkit-backdrop-filter: blur(12px);
-	border: var(--sp-05) solid var(--glass-border);
+	background-color: var(--surface-1);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: var(--sp-05) solid var(--border-1);
 	border-radius: var(--r-md);
-	box-shadow: var(--shadow-md);
+	box-shadow: var(--shadow-md), 0 0 0 1px color-mix(in srgb, var(--fg) 6%, transparent);
 	overflow: hidden;
 	max-height: 0;
 	opacity: 0;
@@ -63,6 +63,10 @@
 	transition:
 		max-height 0.5s var(--ease),
 		opacity 0.2s var(--ease);
+
+	@supports not (backdrop-filter: blur(1px)) {
+		background-color: var(--surface-1);
+	}
 
 	&[data-open] {
 		max-height: var(--sp-26);
