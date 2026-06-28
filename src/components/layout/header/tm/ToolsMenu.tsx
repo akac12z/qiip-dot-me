@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./tm.module.css";
 
 interface Tool {
@@ -14,12 +14,23 @@ interface Props {
 
 const MENU_ID: string = "burger-menu-panel";
 
-export default function BurgerMenu({ tools, currentPath }: Props) {
+const normalize = (p: string) => (p === "/" ? p : p.replace(/\/$/, ""));
+
+export default function BurgerMenu({ tools, currentPath: initialPath }: Props) {
 	const [isOpen, setIsOpen] = useState(false);
+	const [currentPath, setCurrentPath] = useState(
+		typeof window !== "undefined" ? window.location.pathname : initialPath
+	);
+
+	useEffect(() => {
+		const onPageLoad = () => setCurrentPath(window.location.pathname);
+		document.addEventListener("astro:page-load", onPageLoad);
+		return () => document.removeEventListener("astro:page-load", onPageLoad);
+	}, []);
 
 	const close = () => setIsOpen(false);
 
-	const activeTool = tools.find((tool) => tool.href === currentPath);
+	const activeTool = tools.find((tool) => normalize(tool.href) === normalize(currentPath));
 	const dotColor = activeTool?.color ?? null;
 
 	return (
