@@ -30,6 +30,9 @@
 		border: var(--sp-05) solid var(--border);
 		color: var(--fg);
 		font: var(--f-body-style);
+		@media (max-width: 768px) {
+			font-size: var(--t-h6);
+		}
 
 		padding: var(--sp-3) var(--sp-5);
 		border-radius: var(--r-xs);

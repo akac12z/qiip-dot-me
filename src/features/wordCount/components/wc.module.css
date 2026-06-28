@@ -11,6 +11,9 @@
 	border: var(--sp-05) solid var(--border);
 	color: var(--fg);
 	font: var(--f-body-style);
+	@media (max-width: 768px) {
+		font-size: var(--t-h6);
+	}
 	line-height: 1.7;
 	padding: var(--sp-6);
 	border-radius: var(--r-xs);
