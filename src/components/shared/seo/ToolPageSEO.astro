@@ -1,0 +1,32 @@
+---
+import PagesSEO from "./PagesSEO.astro";
+import JsonLdTool from "./JsonLdTool.astro";
+import JsonLdFAQ from "@/aeo/JsonLdFAQ.astro";
+import JsonLdHowTo from "@/aeo/JsonLdHowTo.astro";
+import type { TOOLS_INFO } from "@/global/site-info.ts";
+
+interface Props {
+	tool: TOOLS_INFO;
+	toolName: string;
+	howToName: string;
+}
+
+const { tool, toolName, howToName } = Astro.props;
+const url = Astro.url.pathname;
+---
+
+<PagesSEO
+	pageTitle={tool.title}
+	pageDescription={tool.description}
+	ogType="article"
+	ogImage={tool.ogImage}
+	ogImageAlt={tool.ogImageAlt}
+	keywords={tool.keywords}
+/>
+<JsonLdTool
+	name={toolName}
+	description={tool.description}
+	url={url}
+/>
+{tool.faqs && <JsonLdFAQ faqs={tool.faqs} />}
+{tool.howTo && <JsonLdHowTo name={howToName} description={tool.description} steps={tool.howTo} />}
