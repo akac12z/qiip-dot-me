@@ -12,6 +12,8 @@ import JsonLdOrganization from "./JsonLdOrganization.astro";
 	<ClientRouter />
 	<Favicons />
 
+	<JsonLdOrganization />
+
 	<script is:inline>
 		const getTheme = () =>
 			localStorage.getItem("theme") ??
@@ -83,8 +85,5 @@ import JsonLdOrganization from "./JsonLdOrganization.astro";
 		href="/favicon.ico"
 	/>
 
-	<title>qiip.me</title>
-
-	<JsonLdOrganization />
 	<slot />
 </head>
