@@ -331,6 +331,14 @@ select {
 	color: inherit;
 }
 
+@media (max-width: 768px) {
+	input,
+	textarea,
+	select {
+		font-size: var(--t-h6);
+	}
+}
+
 p,
 h1,
 h2,
