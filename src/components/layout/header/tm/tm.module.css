@@ -23,12 +23,11 @@
 	font: var(--f-mili-style);
 	font-family: var(--ff-headings);
 	transition:
-		box-shadow 0.2s var(--ease),
-		border-color 0.2s var(--ease);
+		box-shadow 0.35s var(--ease),
+		transform 0.15s var(--ease);
 
 	&:hover {
 		box-shadow: var(--shadow-md);
-		border-color: var(--border-2);
 	}
 
 	&:active {
@@ -55,7 +54,9 @@
 	-webkit-backdrop-filter: blur(20px);
 	border: var(--sp-05) solid var(--border-1);
 	border-radius: var(--r-md);
-	box-shadow: var(--shadow-md), 0 0 0 1px color-mix(in srgb, var(--fg) 6%, transparent);
+	box-shadow:
+		var(--shadow-md),
+		0 0 0 1px color-mix(in srgb, var(--fg) 6%, transparent);
 	overflow: hidden;
 	max-height: 0;
 	opacity: 0;
@@ -101,8 +102,8 @@
 		padding: 0.7rem 0.875rem;
 		border-radius: 10px;
 		transition:
-			background-color 0.2s var(--ease),
-			color 0.2s var(--ease);
+			background-color 0.3s var(--ease),
+			color 0.3s var(--ease);
 
 		&:hover {
 			background-color: var(--surface-2);
