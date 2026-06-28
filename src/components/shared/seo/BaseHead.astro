@@ -4,6 +4,10 @@ import { ClientRouter } from "astro:transitions";
 import "../../../styles/global.css";
 import "../../../styles/typo.css";
 
+import sono700 from "../../../assets/fonts/sono-v12-latin-700.woff2";
+import sono400 from "../../../assets/fonts/sono-v12-latin-regular.woff2";
+import inter500 from "../../../assets/fonts/inter-v20-latin-500.woff2";
+
 import Favicons from "./Favicons.astro";
 import JsonLdOrganization from "./JsonLdOrganization.astro";
 ---
@@ -68,6 +72,11 @@ import JsonLdOrganization from "./JsonLdOrganization.astro";
 		name="generator"
 		content={Astro.generator}
 	/>
+
+	{/* Font preload — home critical fonts */}
+	<link rel="preload" as="font" type="font/woff2" crossorigin href={sono700} />
+	<link rel="preload" as="font" type="font/woff2" crossorigin href={sono400} />
+	<link rel="preload" as="font" type="font/woff2" crossorigin href={inter500} />
 
 	<link
 		rel="sitemap"
