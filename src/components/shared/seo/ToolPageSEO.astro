@@ -7,11 +7,9 @@ import type { TOOLS_INFO } from "@/global/site-info.ts";
 
 interface Props {
 	tool: TOOLS_INFO;
-	toolName: string;
-	howToName: string;
 }
 
-const { tool, toolName, howToName } = Astro.props;
+const { tool } = Astro.props;
 const url = Astro.url.pathname;
 ---
 
@@ -24,9 +22,9 @@ const url = Astro.url.pathname;
 	keywords={tool.keywords}
 />
 <JsonLdTool
-	name={toolName}
+	name={tool.label}
 	description={tool.description}
 	url={url}
 />
 {tool.faqs && <JsonLdFAQ faqs={tool.faqs} />}
-{tool.howTo && <JsonLdHowTo name={howToName} description={tool.description} steps={tool.howTo} />}
+{tool.howTo && tool.howToTitle && <JsonLdHowTo name={tool.howToTitle} description={tool.description} steps={tool.howTo} />}
