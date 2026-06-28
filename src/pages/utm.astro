@@ -1,33 +1,13 @@
 ---
 import MainUTM from "@/features/utms/components/MainUTM.astro";
 import Layout from "@/layouts/Layout.astro";
-import PagesSEO from "@/seo/PagesSEO.astro";
-import JsonLdTool from "@/seo/JsonLdTool.astro";
-import JsonLdFAQ from "@/aeo/JsonLdFAQ.astro";
-import JsonLdHowTo from "@/aeo/JsonLdHowTo.astro";
-
+import ToolPageSEO from "@/seo/ToolPageSEO.astro";
 import { TOOLS } from "@/global/site-info.ts";
 
 const UTMS = TOOLS.utms;
 ---
 
 <Layout>
-	<PagesSEO
-		slot="head"
-		pageTitle={UTMS.title}
-		pageDescription={UTMS.description}
-		ogType="article"
-		ogImage={UTMS.ogImage}
-		ogImageAlt={UTMS.ogImageAlt}
-		keywords={UTMS.keywords}
-	/>
-	<JsonLdTool
-		slot="head"
-		name="UTM Builder"
-		description={UTMS.description}
-		url="/utm"
-	/>
-	{UTMS.faqs && <JsonLdFAQ slot="head" faqs={UTMS.faqs} />}
-	{UTMS.howTo && <JsonLdHowTo slot="head" name="How to use the UTM Builder" description={UTMS.description} steps={UTMS.howTo} />}
+	<ToolPageSEO slot="head" tool={UTMS} />
 	<MainUTM />
 </Layout>

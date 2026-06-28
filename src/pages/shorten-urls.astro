@@ -1,32 +1,13 @@
 ---
-import PagesSEO from "@/seo/PagesSEO.astro";
-import JsonLdTool from "@/seo/JsonLdTool.astro";
-import JsonLdFAQ from "@/aeo/JsonLdFAQ.astro";
-import JsonLdHowTo from "@/aeo/JsonLdHowTo.astro";
 import MainSort from "@/features/urlShortener/components/MainSort.astro";
 import Layout from "@/layouts/Layout.astro";
-
+import ToolPageSEO from "@/seo/ToolPageSEO.astro";
 import { TOOLS } from "@/global/site-info.ts";
+
 const SHORTEN = TOOLS.su;
 ---
 
 <Layout>
-	<PagesSEO
-		slot="head"
-		pageTitle={SHORTEN.title}
-		pageDescription={SHORTEN.description}
-		ogType="article"
-		ogImage={SHORTEN.ogImage}
-		ogImageAlt={SHORTEN.ogImageAlt}
-		keywords={SHORTEN.keywords}
-	/>
-	<JsonLdTool
-		slot="head"
-		name="URL Shortener"
-		description={SHORTEN.description}
-		url="/shorten-urls"
-	/>
-	{SHORTEN.faqs && <JsonLdFAQ slot="head" faqs={SHORTEN.faqs} />}
-	{SHORTEN.howTo && <JsonLdHowTo slot="head" name="How to shorten a URL" description={SHORTEN.description} steps={SHORTEN.howTo} />}
+	<ToolPageSEO slot="head" tool={SHORTEN} />
 	<MainSort />
 </Layout>

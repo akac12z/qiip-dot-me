@@ -1,33 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import MainQR from "@/features/qr/components/MainQR.astro";
-import PagesSEO from "@/seo/PagesSEO.astro";
-import JsonLdTool from "@/seo/JsonLdTool.astro";
-import JsonLdFAQ from "@/aeo/JsonLdFAQ.astro";
-import JsonLdHowTo from "@/aeo/JsonLdHowTo.astro";
-
+import ToolPageSEO from "@/seo/ToolPageSEO.astro";
 import { TOOLS } from "@/global/site-info.ts";
 
 const QR = TOOLS.qr;
 ---
 
 <Layout>
-	<PagesSEO
-		slot="head"
-		pageTitle={QR.title}
-		pageDescription={QR.description}
-		ogType="article"
-		ogImage={QR.ogImage}
-		ogImageAlt={QR.ogImageAlt}
-		keywords={QR.keywords}
-	/>
-	<JsonLdTool
-		slot="head"
-		name="QR Code Generator"
-		description={QR.description}
-		url="/qr"
-	/>
-	{QR.faqs && <JsonLdFAQ slot="head" faqs={QR.faqs} />}
-	{QR.howTo && <JsonLdHowTo slot="head" name="How to generate a QR code" description={QR.description} steps={QR.howTo} />}
+	<ToolPageSEO slot="head" tool={QR} />
 	<MainQR />
 </Layout>
