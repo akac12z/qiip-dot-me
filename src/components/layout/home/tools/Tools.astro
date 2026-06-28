@@ -3,7 +3,10 @@ import styles from "./tools.module.css";
 import { TOOLS } from "./tools.ts";
 ---
 
-<section class={styles.grid}>
+<section
+	class=`au ${styles.grid}`
+	style="animation-delay:.22s"
+>
 	{
 		TOOLS.map((tool) => {
 			const { toolName, desc, href, number, onAir, color } = tool;
