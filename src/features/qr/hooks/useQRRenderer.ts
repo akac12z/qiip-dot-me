@@ -61,7 +61,7 @@ export function useQRRenderer({
 		try {
 			const qr = QRCode.create(text, { errorCorrectionLevel: dotLevel });
 			const moduleCount = qr.modules.size;
-			const margin = 16;
+			const margin = CANVAS_SIZE * 0.04;
 			const cellSize = (CANVAS_SIZE - margin * 2) / moduleCount;
 			const dotRadius = (cellSize / 2) * (borderRadius / 5);
 
@@ -121,7 +121,13 @@ export function useQRRenderer({
 				const pad = size * 0.12;
 				ctx.fillStyle = bgColor;
 				ctx.beginPath();
-				ctx.roundRect(x - pad, y - pad, size + pad * 2, size + pad * 2, 6);
+				ctx.roundRect(
+					x - pad,
+					y - pad,
+					size + pad * 2,
+					size + pad * 2,
+					size * 0.06,
+				);
 				ctx.fill();
 			}
 			ctx.drawImage(img, x, y, size, size);
