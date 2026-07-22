@@ -9,10 +9,12 @@ import sitemap from '@astrojs/sitemap';
 import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
-export default defineConfig({
-  integrations: [react(), sitemap(), partytown()],
+export default defineConfig( {
+  integrations: [ react(), sitemap(), partytown() ],
   site: 'https://qiip.me',
-  webAnalytics: {
-    enabled: true,
-  },
-});
+  adapter: vercel( {
+    webAnalytics: {
+      enabled: true,
+    },
+  } )
+} );
