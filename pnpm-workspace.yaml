@@ -3,3 +3,5 @@ allowBuilds:
   sharp: true
 ignoredBuiltDependencies:
   - esbuild
+savePrefix: ""
+minimumReleaseAge: 1440
