@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import QRCode from "qrcode";
 import type { DOT_LEVEL } from "../rules/dot.ts";
 import type { QRFormat, QRLogoConfig } from "../rules/qr.interfaces.ts";
-
-const CANVAS_SIZE = 400;
+import { CANVAS_SIZE } from "../rules/canvas.ts";
 
 interface UseQRRendererParams {
 	text: string;
@@ -90,7 +89,7 @@ export function useQRRenderer({
 				logoRenderToken.current.cancelled = true;
 				const token = { cancelled: false };
 				logoRenderToken.current = token;
-				overlayLogo(canvas, ctx, logo, token);
+				overlayLogo(ctx, logo, token);
 			}
 			setHasQR(true);
 
@@ -106,7 +105,6 @@ export function useQRRenderer({
 	}
 
 	function overlayLogo(
-		canvas: HTMLCanvasElement,
 		ctx: CanvasRenderingContext2D,
 		logoConfig: QRLogoConfig,
 		renderToken: { cancelled: boolean },

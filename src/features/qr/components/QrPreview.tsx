@@ -1,6 +1,5 @@
 import styles from "./qr.module.css";
-
-const CANVAS_SIZE: number = 400;
+import { CANVAS_SIZE } from "../rules/canvas.ts";
 
 interface QRPrevProps {
 	canvasRef: React.RefObject<HTMLCanvasElement | null>;
